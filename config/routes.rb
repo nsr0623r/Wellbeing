@@ -11,10 +11,18 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   
-  # ユーザー側devise
+  # ユーザー側routing
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about', as: 'about'
+    resources :users do
+      get 'my_page' => 'users#show', as: 'my_page'
+      get 'information/edit' => 'users#edit', as: 'information_edit'
+      patch 'information' => 'users#update', as: 'information'
+      get 'unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+      patch 'withdraw' => 'usesrs#withdraw', as: 'withdraw'
+    end
+    resources :posts
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

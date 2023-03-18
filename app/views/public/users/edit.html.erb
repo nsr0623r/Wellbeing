@@ -1,0 +1,24 @@
+<h1>Public::Users#editマイページ編集</h1>
+
+<%= form_with model: @user do |f| %>
+  <div class="form_group">
+    <%= f.label '名前' %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  
+  <div class="form_group">
+    <%= f.label '生年月日' %>
+    <%= f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year), default: Date.new(1989, 1, 1) %>
+  </div>
+  
+  <div class="form_group">
+    <%= f.label 'メールアドレス' %>
+    <%= f.email_field :email %>
+  </div>
+  
+  <div class="form_group">
+    <%= f.submit '編集内容を保存' %>
+    <%= link_to '退会する', user_unsubscribe_path(@user) %>
+  </div>
+
+<% end %>

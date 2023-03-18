@@ -1,0 +1,9 @@
+<h1>Public::Users#showマイページ</h1>
+
+<h5>登録情報</h5>
+
+<p>名前<%= @user.name %></p>
+<p>生年月日<%= @user.birthday %></p>
+<p>メールアドレス<%= @user.email %></p>
+
+<%= link_to '編集する', edit_user_path(@user) %>
