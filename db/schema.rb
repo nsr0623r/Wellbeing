@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_151053) do
+ActiveRecord::Schema.define(version: 2023_03_18_134338) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 2023_03_02_151053) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "physiologies", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "menstrual_blood_volume"
+    t.integer "cramps"
+    t.boolean "medicine", default: false, null: false
+    t.date "physiology_start_date"
+    t.date "physiology_end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "posted_text"
+    t.float "temperature"
+    t.float "weight"
+    t.float "body_fat_percentage"
+    t.datetime "start_time", null: false
+    t.boolean "release", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,2 +1,14 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<h1>Public::Posts#index投稿一覧</h1>
+
+<% @posts.each do |post| %>
+  
+  <p>体温<%= post.temperature %></p>
+  <p>体重<%= post.weight %></p>
+  <p>体脂肪率<%= post.body_fat_percentage %></p>
+  <p>経血量<%= post.physiology.menstrual_blood_volume_i18n %></p>
+  <p>生理痛<%= post.physiology.cramps_i18n %></p>
+  <p>くすり<%= post.physiology.medicine %></p>
+  <p>生理開始日<%= post.physiology.physiology_start_date %></p>
+  <p>生理終了日<%= post.physiology.physiology_end_date %></p>
+
+<% end %>

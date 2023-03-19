@@ -1,0 +1,14 @@
+ja:
+  enums:
+    physiology:
+      menstrual_blood_volume:
+        menstrual_blood_little: "少ない"
+        menstrual_blood_a_little: "やや少ない"
+        menstrual_blood_normal: "普通"
+        menstrual_blood_some: "やや多い"
+        menstrual_blood_much: "多い"
+      cramps:
+        cramps_none: "なし"
+        cramps_light: "軽め"
+        cramps_somewhat: "やや重い"
+        cramps_heavy: "重い"

@@ -1,2 +1,139 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<h1>Public::Posts#new新規投稿</h1>
+
+<!--新規投稿画面-->
+<%= Date.current.strftime('%m月%d日') %>
+
+<%= form_with model: @post, url: posts_path do |f| %>
+  <%= f.label '生理中' %>
+  <%#= f.check_box %>
+  
+  <p>体温</p>
+  <%= f.text_field :temperature %>
+  
+  <p>体重</p>
+  <%= f.text_field :weight %>
+  
+  <p>体脂肪率</p>
+  <%= f.text_field :body_fat_percentage %>
+  
+  <p>コメント</p>
+  <%= f.text_field :posted_text %>
+  
+  <p>時刻</p>
+  <p><%= f.date_select :start_time %></p>
+  
+  <div>
+    <p>生理</p>
+    <p>経血量</p>
+    <div>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(0) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_little] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(1) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_a_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_a_little] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(2) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_normal, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_normal] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(3) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_some, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_some] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(4) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_much, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_much] %>
+    </div>
+    
+    <p>生理痛</p>
+    <div>
+      <%= f.radio_button :cramps, Physiology.cramps.key(0) %>
+      <%= f.label :cramps_none, Physiology.cramps_i18n[:cramps_none] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(1) %>
+      <%= f.label :cramps_light, Physiology.cramps_i18n[:cramps_light] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(2) %>
+      <%= f.label :cramps_somewhat, Physiology.cramps_i18n[:cramps_somewhat] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(3) %>
+      <%= f.label :cramps_heavy, Physiology.cramps_i18n[:cramps_heavy] %>
+      </div>
+    
+    <%= f.check_box :medicine, class: "select_group" %>
+    <%= f.label(:medicine, 'くすり', value: true, class: "box") %>
+    
+    <p>生理開始日</p>
+    <%= f.date_select :physiology_start_date %>
+    
+    <p>生理終了日</p>
+    <%= f.date_select :physiology_end_date %>
+  </div>
+  
+  <div>
+    <!--<div>-->
+      <!--<p>からだ</p>-->
+      <%#= fields_for :physical_symptom do |physical_symptom| %>
+        <%#= f.check_box :good, class: "select_group" %>
+        <%#= f.label(:good, "良好", class: "box") %>
+      <%# end %>
+
+        <%#= f.check_box :no_malfunction, class: "select_group" %>
+        <%#= f.label(:no_malfunction, '不調なし', class: "box") %>
+      
+      <%#= f.check_box :tired, class: "select_group" %>
+      <%#= f.label(:tired, '疲れ', class: "box") %>
+      
+      <%#= f.check_box :washed_out_feeling, class: "select_group" %>
+      <%#= f.label(:washed_out_feeling, '倦怠感', class: "box") %>
+      
+      <%#= f.check_box :lumbago, class: "select_group" %>
+      <%#= f.label(:lumbago, '腰痛', class: "box") %>
+      
+      <%#= f.check_box :stomach_ache, class: "select_group" %>
+      <%#= f.label(:stomach_ache, '腹痛', class: "box") %>
+      
+      <%#= f.check_box :headache, class: "select_group" %>
+      <%#= f.label(:headache, '頭痛', class: "box") %>
+      
+      <%#= f.check_box :rough_skin, class: "select_group" %>
+      <%#= f.label(:rough_skin, '肌あれ', class: "box") %>
+      
+      <%#= f.check_box :chilling_exposure, class: "select_group" %>
+      <%#= f.label(:chilling_exposure, '冷え', class: "box") %>
+      
+      <%#= f.check_box :swelling, class: "select_group" %>
+      <%#= f.label(:swelling, 'むくみ', class: "box") %>
+      
+      <%#= f.check_box :sleepiness, class: "select_group" %>
+      <%#= f.label(:sleepiness, '眠気', class: "box") %>
+      
+      <%#= f.check_box :increased_appetite, class: "select_group" %>
+      <%#= f.label(:increased_appetite, '食欲が増す', class: "box") %>
+      
+      <%#= f.check_box :low_appetite, class: "select_group" %>
+      <%#= f.label(:low_appetite, '食欲がない', class: "box") %>
+      
+      <%#= f.check_box :chest_pain, class: "select_group" %>
+      <%#= f.label(:chest_pain, '胸のはり', class: "box") %>
+      
+      <%#= f.check_box :nausea, class: "select_group" %>
+      <%#= f.label(:nausea, '吐き気', class: "box") %>
+      
+      <%#= f.check_box :dazziness, class: "select_group" %>
+      <%#= f.label(:dazziness, 'めまい', class: "box") %>
+      
+      <%#= f.check_box :pollakiuria, class: "select_group" %>
+      <%#= f.label(:pollakiuria, '頻尿', class: "box") %>
+      
+      <%#= f.check_box :hot_flash, class: "select_group" %>
+      <%#= f.label(:hot_flash, 'ほてり', class: "box") %>
+      
+      <div>
+        <%#= f.radio_button :defecute, PhysicalSymptom.defecutes.key(0) %>
+        <%#= f.label :defecute_good, PhysicalSymptom.defecutes_i18n[:good] %>
+        <%#= f.radio_button :defecute, PhysicalSymptom.defecutes.key(1) %>
+        <%#= f.label :defecute_constipated, PhysicalSymptom.defecutes_i18n[:constipated] %>
+        <%#= f.radio_button :defecute, PhysicalSymptom.defecutes.key(2) %>
+        <%#= f.label :defecute_diarrhea, PhysicalSymptom.defecutes_i18n[:diarrhea] %>
+      </div>
+      
+    </div>
+
+    <%= f.label '公開する' %>
+    <%= f.radio_button :release, :true %>
+  </div>
+  
+  <p><%= f.submit '投稿' %></p>
+
+<% end %>
