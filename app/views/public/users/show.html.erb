@@ -1,9 +1,35 @@
 <h1>Public::Users#showマイページ</h1>
 
-<h5>登録情報</h5>
+<h1>登録情報</h1>
 
 <p>名前<%= @user.name %></p>
 <p>生年月日<%= @user.birthday %></p>
 <p>メールアドレス<%= @user.email %></p>
 
-<%= link_to '編集する', edit_user_path(@user) %>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-dark" %>

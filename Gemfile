@@ -61,3 +61,5 @@ gem 'chartkick'
 gem "simple_calendar", "~> 2.0"
 gem 'rails-i18n'
 gem 'enum_help'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.5.0'

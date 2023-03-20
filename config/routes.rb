@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # ユーザー側devise
   devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
-    sessions: 'public/sessions'
+    sessions: "public/sessions"
   }
   
   # 管理者側devise

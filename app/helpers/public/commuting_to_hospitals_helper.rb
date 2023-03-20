@@ -1,0 +1,2 @@
+module Public::CommutingToHospitalsHelper
+end
