@@ -1,0 +1,7 @@
+$("text_area").val("");
+$("input").val("");
+$("date_field").val("");
+//$('#exampleModal').modal('hide');
+$('#exampleModal').remove();
+$(".modal-backdrop").remove();
+$('.commuting_to_hospital').html("<%= j(render 'commuting_to_hospitals', commuting_to_hospitals: @commuting_to_hospitals) %>");

@@ -6,30 +6,40 @@
 <p>生年月日<%= @user.birthday %></p>
 <p>メールアドレス<%= @user.email %></p>
 
-<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  新規登録
 </button>
+<div class="commuting_to_hospital">
+  <%= render 'public/commuting_to_hospitals/commuting_to_hospitals', commuting_to_hospitals: @commuting_to_hospitals %>
+</div>
 
-<!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">新規登録</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <%= form_with model: @commuting_to_hospital, url: commuting_to_hospitals_path, local: false do |f| %>
+        <div class="modal-body">
+          <%= f.label :hospital_name, '病院名' %>
+          <%= f.text_field :hospital_name, class: "form-control" %>
+          
+          <%= f.label :day_of_a_hospital_visit, '通院日' %>
+          <%= f.date_field :day_of_a_hospital_visit, class: "form-control" %>
+          
+          <%= f.label :objective, '通院目的・メモ' %>
+          <%= f.text_area :objective, class: "form-control" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+          <%= f.submit '登録', class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
 
-<%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-dark" %>
+<p><%= link_to '編集する', edit_user_path(@user), class: "btn btn-outline-dark" %></p>

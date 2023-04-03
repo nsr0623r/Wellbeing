@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   
   # ユーザー側devise
   devise_for :users, skip: [:passwords], controllers: {
-    registrations: "public/registrations",
-    sessions: "public/sessions"
+    sessions: "public/sessions",
+    registrations: "public/registrations"
   }
+  # devise_scope :user do
+  #   get '/users/sign_out' => 'devise/sessions#destroy'
+  # end
   
   # 管理者側devise
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
       patch 'withdraw' => 'usesrs#withdraw', as: 'withdraw'
     end
     resources :posts
+    resources :commuting_to_hospitals
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

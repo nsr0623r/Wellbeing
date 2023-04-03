@@ -4,6 +4,12 @@ class Public::UsersController < ApplicationController
   # ユーザーマイページ
   def show
     @user = current_user
+    @commuting_to_hospital = CommutingToHospital.new
+    @commuting_to_hospitals = CommutingToHospital.all
+  end
+  
+  def create
+    
   end
 
   def edit
@@ -32,6 +38,8 @@ class Public::UsersController < ApplicationController
   end
   
   private
+  
+  
   
   def user_params
     params.require(:user).permit(:name, :birthday, :email, :is_deleted)
