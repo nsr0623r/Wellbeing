@@ -1,6 +1,8 @@
 <h1>Public::Posts#index投稿一覧</h1>
 
 <% @posts.each do |post| %>
+
+  <p>_____________________________________________</p>
   
   <div>
     <p>体温<%= post.temperature %></p>
@@ -9,27 +11,27 @@
     <p>コメント<%= post.posted_text %></p>
   </div>
   
-  <div>
-    <p>生理</p>
-    <p>生理開始日<%= post.physiology.physiology_start_date %></p>
-    <p>生理終了日<%= post.physiology.physiology_end_date %></p>
-    <p>経血量<%= post.physiology.menstrual_blood_volume_i18n %></p>
-    <p>生理痛<%= post.physiology.cramps_i18n %></p>
-    <p>くすり<%= post.physiology.medicine %></p>
-  </div>
+  <!--<div>-->
+  <!--  <p>生理</p>-->
+  <!--  <p>生理開始日<%#= post.physiology.physiology_start_date %></p>-->
+  <!--  <p>生理終了日<%#= post.physiology.physiology_end_date %></p>-->
+  <!--  <p>経血量<%#= post.physiology.menstrual_blood_volume_i18n %></p>-->
+  <!--  <p>生理痛<%#= post.physiology.cramps_i18n %></p>-->
+  <!--  <p>くすり<%#= post.physiology.medicine %></p>-->
+  <!--</div>-->
   
-  <div>
-    <p>からだ</p>
-    <p><%= post.physical_symptom.physical_good %></p>
-    <p><%= post.physical_symptom.no_malfunction %></p>
-    <p><%= post.physical_symptom.tired %></p>
-    <p><%= post.physical_symptom.washed_out_feeling %></p>
-    <p><%= post.physical_symptom.lumbago %></p>
-    <p><%= post.physical_symptom.stomach_ache %></p>
-  </div>
+  <!--<div>-->
+  <!--  <p>からだ</p>-->
+  <!--  <p><%#= post.physical_symptom.physical_good %></p>-->
+  <!--  <p><%#= post.physical_symptom.no_malfunction %></p>-->
+  <!--  <p><%#= post.physical_symptom.tired %></p>-->
+  <!--  <p><%#= post.physical_symptom.washed_out_feeling %></p>-->
+  <!--  <p><%#= post.physical_symptom.lumbago %></p>-->
+  <!--  <p><%#= post.physical_symptom.stomach_ache %></p>-->
+  <!--</div>-->
   
-  <div>
-    <p><%= %></p>
-  </div>
+  <!--<div>-->
+  <!--  <p><%#= %></p>-->
+  <!--</div>-->
 
 <% end %>

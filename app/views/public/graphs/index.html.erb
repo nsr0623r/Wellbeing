@@ -1,0 +1,59 @@
+<h1>Public::Graphs#index グラフ一覧</h1>
+
+<div class="tabs">
+  <input id="all" type="radio" name="tab_item" checked>
+  <label class="tab_item" for="all">体温</label>
+  <input id="programming" type="radio" name="tab_item">
+  <label class="tab_item" for="programming">体重</label>
+  <input id="design" type="radio" name="tab_item">
+  <label class="tab_item" for="design">体脂肪</label>
+  <div class="tab_content" id="all_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <% @temperature_hash.each do |monthly_hash| %>
+          <div>
+          　<%= monthly_hash[0].to_i + 1 %>月の測定値
+          　<% if monthly_hash[1].present? %>
+              <%= line_chart monthly_hash[1], min: 35 %>
+            <% else %>
+              データなし
+            <% end %>
+          </div>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="tab_content" id="programming_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <% @weight_hash.each do |monthly_hash| %>
+          <div>
+          　<%= monthly_hash[0].to_i + 1 %>月の測定値
+          　<% if monthly_hash[1].present? %>
+              <%= line_chart monthly_hash[1], min: 35 %>
+            <% else %>
+              データなし
+            <% end %>
+          </div>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="tab_content" id="design_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <% @body_fat_percentage_hash.each do |monthly_hash| %>
+          <div>
+          　<%= monthly_hash[0].to_i + 1 %>月の測定値
+          　<% if monthly_hash[1].present? %>
+              <%= line_chart monthly_hash[1], min: 15 %>
+            <% else %>
+              データなし
+            <% end %>
+          </div>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
+
