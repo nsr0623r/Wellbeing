@@ -12,3 +12,25 @@ ja:
         cramps_light: "軽め"
         cramps_somewhat: "やや重い"
         cramps_heavy: "重い"
+    physical_symptom:
+      defecute:
+        defecute_good: "良好"
+        constipated: "便秘"
+        diarrhea: "下痢"
+      vaginal_discharge:
+        vaginal_discharge_little: "少ない"
+        vaginal_discharge_normal: "普通"
+        vaginal_discharge_a_lot: "多い"
+      vaginal_discharge_type:
+        stickiness: "ねばねば"
+        cream: "クリーム"
+        stillness: "とろみ"
+        watery: "水っぽい"
+        in_large_drops: "ぽろぽろ"
+      vaginal_bleeding:
+        vaginal_bleeding_little: "少ない"
+        vaginal_bleeding_existing: "あり"
+        vaginal_bleeding_a_lot: "多い"
+      sex:
+        unprotected: "避妊なし"
+        contraceptive: "避妊あり"

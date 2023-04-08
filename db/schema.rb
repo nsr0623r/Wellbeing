@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_19_085536) do
+ActiveRecord::Schema.define(version: 2023_04_03_180517) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +33,51 @@ ActiveRecord::Schema.define(version: 2023_03_19_085536) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mental_manifestations", force: :cascade do |t|
+    t.integer "post_id"
+    t.boolean "mental_good"
+    t.boolean "mental_normal"
+    t.boolean "frustrating"
+    t.boolean "hot_tempered"
+    t.boolean "emotional_instability"
+    t.boolean "emotional"
+    t.boolean "uneasiness"
+    t.boolean "poor_concentrtion"
+    t.boolean "lethargy"
+    t.boolean "melancholy"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "physical_symptoms", force: :cascade do |t|
+    t.integer "post_id"
+    t.boolean "physical_good"
+    t.boolean "no_malfunction"
+    t.boolean "tired"
+    t.boolean "washed_out_feeling"
+    t.boolean "lumbago"
+    t.boolean "stomach_ache"
+    t.boolean "headache"
+    t.boolean "rough_skin"
+    t.boolean "chilling_exposure"
+    t.boolean "swelling"
+    t.boolean "sleepiness"
+    t.boolean "increased_appetite"
+    t.boolean "low_appetite"
+    t.boolean "chest_pain"
+    t.boolean "nausea"
+    t.boolean "dazziness"
+    t.boolean "pollakiuria"
+    t.boolean "hot_flash"
+    t.integer "defecute"
+    t.integer "vaginal_discharge"
+    t.integer "vaginal_discharge_type"
+    t.integer "vaginal_bleeding"
+    t.integer "sex"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "physiologies", force: :cascade do |t|
     t.integer "post_id"
     t.integer "menstrual_blood_volume"
@@ -51,6 +96,18 @@ ActiveRecord::Schema.define(version: 2023_03_19_085536) do
     t.float "body_fat_percentage"
     t.datetime "start_time", null: false
     t.boolean "release", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pregnancies", force: :cascade do |t|
+    t.integer "post_id"
+    t.boolean "morning_sickness"
+    t.boolean "belching"
+    t.boolean "backache_during_pregnancy"
+    t.boolean "anaemia"
+    t.boolean "sour_stomach"
+    t.boolean "pulsation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
