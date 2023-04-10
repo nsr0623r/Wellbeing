@@ -13,7 +13,6 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application" 
 import "chartkick/chart.js"
-import "simple_calendar";
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
