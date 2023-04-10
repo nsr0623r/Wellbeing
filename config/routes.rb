@@ -5,9 +5,6 @@ Rails.application.routes.draw do
     sessions: "public/sessions",
     registrations: "public/registrations"
   }
-  # devise_scope :user do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
   
   # 管理者側devise
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
@@ -28,6 +25,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :commuting_to_hospitals
     resources :graphs, only: [:index, :show]
+    resources :calendars, only: [:index]
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

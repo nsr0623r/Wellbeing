@@ -1,11 +1,13 @@
 <h1>Public::Posts#new新規投稿</h1>
 
 <!--新規投稿画面-->
-<%= Date.current.strftime('%m月%d日') %>
+<%#= Date.current.strftime('%m月%d日') %>
 
 <%= form_with model: @post, url: posts_path do |f| %>
-  <%= f.label '生理中' %>
-  <%#= f.check_box %>
+  <p>登録日
+    <%= f.date_select :start_time %>
+    
+    </p>
   
   <p>体温</p>
   <%= f.text_field :temperature %>
@@ -18,9 +20,6 @@
   
   <p>コメント</p>
   <%= f.text_field :posted_text %>
-  
-  <p>時刻</p>
-  <p><%= f.date_select :start_time %></p>
   
   <div>
     <p>生理</p>

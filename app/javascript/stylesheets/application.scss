@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .select_group {
   display: none;
@@ -65,4 +66,8 @@ input[name="tab_item"] {
 .tabs input:checked + .tab_item {
   background-color: #5ab4bd;
   color: #fff;
+}
+
+a {
+  color: block;
 }
