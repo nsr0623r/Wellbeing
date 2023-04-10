@@ -1,3 +1,28 @@
 <h1>Public::Posts#show</h1>
 <p>Find me in app/views/public/posts/show.html.erb</p>
 
+<div>
+    <p>体温<%= @post.temperature %></p>
+    <p>体重<%= @post.weight %></p>
+    <p>体脂肪率<%= @post.body_fat_percentage %></p>
+    <p>コメント<%= @post.posted_text %></p>
+    <p>画像<%#= image_tag post.get_image %></p>
+  </div>
+  
+  <div>
+    <p>コメント件数：<%= @post.post_comments.count %></p>
+    <% @post.post_comments.each do |post_comment| %>
+      <%= post_comment.user.name %>
+      <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+      <% if @post.user == current_user %>
+        <%= button_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= form_with model: [@post, @post_comment] do |f| %>
+      <%= f.text_area :comment, row: '5', placeholder: "コメントをここに" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>

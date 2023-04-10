@@ -22,7 +22,9 @@ Rails.application.routes.draw do
       get 'unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
       patch 'withdraw' => 'usesrs#withdraw', as: 'withdraw'
     end
-    resources :posts
+    resources :posts do
+      resources :post_comments, only: [:create, :destroy]
+    end
     resources :commuting_to_hospitals
     resources :graphs, only: [:index, :show]
     resources :calendars, only: [:index]
