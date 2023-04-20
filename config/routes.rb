@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   # ユーザー側devise
   devise_for :users, skip: [:passwords], controllers: {
     sessions: "public/sessions",
@@ -21,6 +25,9 @@ Rails.application.routes.draw do
       patch 'information' => 'users#update', as: 'information'
       get 'unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
       patch 'withdraw' => 'usesrs#withdraw', as: 'withdraw'
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     end
     resources :posts do
       resources :post_comments, only: [:create, :destroy]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_10_175404) do
+ActiveRecord::Schema.define(version: 2023_04_10_231718) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(version: 2023_04_10_175404) do
     t.boolean "anaemia"
     t.boolean "sour_stomach"
     t.boolean "pulsation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
