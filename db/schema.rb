@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_10_231718) do
+ActiveRecord::Schema.define(version: 2023_04_20_172150) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -53,6 +53,38 @@ ActiveRecord::Schema.define(version: 2023_04_10_231718) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_graphs_on_post_id"
+  end
+
+  create_table "health_histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "disease_name"
+    t.date "diagnostic_day"
+    t.text "medical_treatment"
+    t.text "health_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "history_of_births", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "date_of_birth"
+    t.integer "parity"
+    t.integer "method"
+    t.text "birth_record"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "medication_histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "medicine"
+    t.text "objective"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "taking_status"
+    t.text "medicine_comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mental_manifestations", force: :cascade do |t|
@@ -163,6 +195,15 @@ ActiveRecord::Schema.define(version: 2023_04_10_231718) do
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "vaccination_histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.date "inoculation_date"
+    t.integer "amount"
+    t.string "vaccination"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "calendars", "posts"

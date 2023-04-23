@@ -5,7 +5,16 @@ class Public::UsersController < ApplicationController
   def show
     @user = current_user
     @commuting_to_hospital = CommutingToHospital.new
+    @medication_history = MedicationHistory.new
+    @health_history = HealthHistory.new
+    @vaccination_history = VaccinationHistory.new
+    @history_of_birth = HistoryOfBirth.new
+    
     @commuting_to_hospitals = CommutingToHospital.all
+    @medication_histories = MedicationHistory.all
+    @health_histories = HealthHistory.all
+    @vaccination_histories = VaccinationHistory.all
+    @history_of_births = HistoryOfBirth.all
   end
   
   def create

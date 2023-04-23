@@ -1,0 +1,7 @@
+$("text_area").val("");
+$("input").val("");
+$("date_field").val("");
+//$('#vaccinationModal').modal('hide');
+$('#vaccinationModal').remove();
+$(".modal-backdrop").remove();
+$('.vaccination_history').html("<%= j(render 'vaccination_histories', vaccination_histories: @vaccination_histories) %>");

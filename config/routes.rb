@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
   # ユーザー側devise
   devise_for :users, skip: [:passwords], controllers: {
     sessions: "public/sessions",
@@ -33,9 +29,15 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    get 'relationships/followings'
+    get 'relationships/followers'
     resources :commuting_to_hospitals
     resources :graphs, only: [:index, :show]
     resources :calendars, only: [:index]
+    resources :history_of_births
+    resources :health_histories
+    resources :medication_histories
+    resources :vaccination_histories
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

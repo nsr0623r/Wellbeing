@@ -1,0 +1,7 @@
+$("text_area").val("");
+$("input").val("");
+$("date_field").val("");
+//$('#birthModal').modal('hide');
+$('#birthModal').remove();
+$(".modal-backdrop").remove();
+$('.history_of_birth').html("<%= j(render 'history_of_births', history_of_births: @history_of_births) %>");

@@ -1,0 +1,7 @@
+$("text_area").val("");
+$("input").val("");
+$("date_field").val("");
+//$('#medicineModal').modal('hide');
+$('#medicineModal').remove();
+$(".modal-backdrop").remove();
+$('.medication_history').html("<%= j(render 'medication_histories', medication_histories: @medication_histories) %>");
