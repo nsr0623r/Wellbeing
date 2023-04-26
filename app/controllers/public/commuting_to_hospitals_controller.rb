@@ -4,12 +4,26 @@ class Public::CommutingToHospitalsController < ApplicationController
     commuting_to_hospital.user_id = current_user.id
     commuting_to_hospital.save!
     @commuting_to_hospitals = CommutingToHospital.all
+    @commuting_to_hospital = CommutingToHospital.find(params[:id])
+  end
+  
+  def edit
+    @commuting_to_hospital = CommutingToHospital.find(params[:id])
   end
   
   def update
+    @commuting_to_hospital = CommutingToHospital.find(params[:id])
+    if @commuting_to_hospital.update(commuting_to_hospital_params)
+      redirect_to user_my_page_path
+    else
+      render :edit
+      
   end
   
   def destroy
+    commuting_to_hospital = CommutingToHospital.find(params[:id])
+    commuting_to_hospital.destroy
+    redirect_to user_my_page_path
   end
   
   private

@@ -2,4 +2,6 @@
   <%= commuting_to_hospital.hospital_name %>
   <%= commuting_to_hospital.day_of_a_hospital_visit %>
   <%= commuting_to_hospital.objective %>
+  <%= link_to "編集", edit_commuting_to_hospital_path(@commuting_to_hospital.id) %>
+  <%= link_to "削除", commuting_to_hospitals_path(commuting_to_hospital.id), method: :delete %>
 <% end %>

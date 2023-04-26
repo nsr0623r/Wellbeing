@@ -16,10 +16,6 @@ class Public::UsersController < ApplicationController
     @vaccination_histories = VaccinationHistory.all
     @history_of_births = HistoryOfBirth.all
   end
-  
-  def create
-    
-  end
 
   def edit
     @user = current_user
@@ -48,9 +44,11 @@ class Public::UsersController < ApplicationController
   
   private
   
-  
-  
   def user_params
     params.require(:user).permit(:name, :birthday, :email, :is_deleted)
+  end
+  
+  def commuting_to_hospital_params
+    params.require(:commuting_to_hospital).permit(:hospital_name, :day_of_a_hospital_visit, :objective)
   end
 end
