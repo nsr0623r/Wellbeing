@@ -6,10 +6,23 @@ class Public::VaccinationHistoriesController < ApplicationController
     @vaccination_histories = VaccinationHistory.all
   end
   
+  def edit
+    @vaccination_history = VaccinationHistory.find(params[:id])
+  end
+  
   def update
+    @vaccination_history = VaccinationHistory.find(params[:id])
+    if @vaccination_history.update(vaccination_history_params)
+      redirect_to user_my_page_path(@vaccination_history.user_id)
+    else
+      render :edit
+    end
   end
   
   def destroy
+    @vaccination_history = VaccinationHistory.find(params[:id])
+    @vaccination_history.destroy
+    redirect_to user_my_page_path(@vaccination_history.user_id)
   end
   
   private

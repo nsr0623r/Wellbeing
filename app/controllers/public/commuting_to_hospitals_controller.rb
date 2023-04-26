@@ -14,16 +14,16 @@ class Public::CommutingToHospitalsController < ApplicationController
   def update
     @commuting_to_hospital = CommutingToHospital.find(params[:id])
     if @commuting_to_hospital.update(commuting_to_hospital_params)
-      redirect_to user_my_page_path
+      redirect_to user_my_page_path(@commuting_to_hospital.user_id)
     else
       render :edit
-      
+    end
   end
   
   def destroy
-    commuting_to_hospital = CommutingToHospital.find(params[:id])
-    commuting_to_hospital.destroy
-    redirect_to user_my_page_path
+    @commuting_to_hospital = CommutingToHospital.find(params[:id])
+    @commuting_to_hospital.destroy
+    redirect_to user_my_page_path(@commuting_to_hospital.user_id)
   end
   
   private

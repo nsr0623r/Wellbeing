@@ -1,0 +1,19 @@
+<%= form_with model: @history_of_birth do |f| %>
+
+  <%= f.label '出産日' %>
+  <%= f.date_field :date_of_birth, class: "form-control" %>
+  
+  <%= f.label '出産回数' %>
+  <%= f.number_field :parity, class: "form-control" %>
+  
+  <%= f.label '出産方法' %>
+  <%= f.text_field :method, class: "form-control" %>
+  
+  <%= f.label '出産メモ' %>
+  <%= f.text_area :birth_record, class: "form-control" %>
+  
+  <%= f.submit '登録', class: "btn btn-primary" %>
+  
+<% end %>
+
+<%= link_to "戻る", user_my_page_path(@history_of_birth.user_id) %>

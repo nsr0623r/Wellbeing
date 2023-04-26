@@ -1,0 +1,17 @@
+<%= form_with model: @health_history do |f| %>
+  <%= f.label '病名' %>
+  <%= f.text_field :disease_name, class: "form-control" %>
+  
+  <%= f.label '診断日' %>
+  <%= f.date_field :diagnostic_day, class: "form-control" %>
+  
+  <%= f.label '治療内容' %>
+  <%= f.text_area :medical_treatment, class: "form-control" %>
+  
+  <%= f.label 'コメント' %>
+  <%= f.text_area :health_comment, class: "form-control" %>
+  <%= f.submit '登録', class: "btn btn-primary" %>
+  
+<% end %>
+
+<%= link_to "戻る", user_my_page_path(@health_history.user_id) %>

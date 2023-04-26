@@ -1,7 +1,7 @@
-<%= form_with model: @commuting_to_hospital, url: commuting_to_hospitals_path(@commuting_to_hospital.id), method: :patch do |f| %>
+<%= form_with model: @commuting_to_hospital do |f| %>
 
   <%= f.label :hospital_name, '病院名' %>
-  <%= f.text_field :hospital_name, class: "form-control" %>
+  <%= f.text_field :hospital_name, autofocus: true, class: "form-control" %>
   
   <%= f.label :day_of_a_hospital_visit, '通院日' %>
   <%= f.date_field :day_of_a_hospital_visit, class: "form-control" %>
@@ -12,3 +12,5 @@
   <%= f.submit '登録', class: "btn btn-primary" %>
 
 <% end %>
+
+<%= link_to "戻る", user_my_page_path(@commuting_to_hospital.user_id) %>

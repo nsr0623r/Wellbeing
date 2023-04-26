@@ -188,7 +188,7 @@
       <%= form_with model: @history_of_birth, url: history_of_births_path, local: false do |f| %>
         <div class="modal-body">
           <%= f.label :date_of_birth, '出産日' %>
-          <%= f.date_field :date_of_birth, class: "form-control" %>
+          <%= f.datetime_field :date_of_birth, class: "form-control" %>
           
           <%= f.label :parity, '出産回数' %>
           <%= f.number_field :parity, class: "form-control" %>

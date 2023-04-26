@@ -3,4 +3,6 @@
   <%= health_history.diagnostic_day %>
   <%= health_history.medical_treatment %>
   <%= health_history.health_comment %>
+  <%= link_to "編集", edit_health_history_path(health_history.id) %>
+  <%= link_to "削除", health_history_path(health_history.id), method: :delete %>
 <% end %>

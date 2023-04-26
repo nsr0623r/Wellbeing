@@ -1,0 +1,18 @@
+<%= form_with model: @medication_history do |f| %>
+
+  <%= f.label '服薬名' %>
+  <%= f.text_field :medicine, autofocus: true, class: "form-control" %>
+  
+  <%= f.label '服薬目的' %>
+  <%= f.text_area :objective, class: "form-control" %>
+  
+  <%= f.label '服薬開始日' %>
+  <%= f.date_field :start_date, class: "form-control" %>
+  
+  <%= f.label '服薬終了日' %>
+  <%= f.date_field :end_date, class: "form-control" %>
+  
+  <%= f.submit '登録', class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "戻る", user_my_page_path(@medication_history.user_id) %>

@@ -6,10 +6,23 @@ class Public::MedicationHistoriesController < ApplicationController
     @medication_histories = MedicationHistory.all
   end
   
+  def edit
+    @medication_history = MedicationHistory.find(params[:id])
+  end
+  
   def update
+    @medication_history = MedicationHistory.find(params[:id])
+    if @medication_history.update(medication_history_params)
+      redirect_to user_my_page_path(@medication_history.user_id)
+    else
+      render :edit
+    end
   end
   
   def destroy
+    @medication_history = MedicationHistory.find(params[:id])
+    @medication_history.destroy
+    redirect_to user_my_page_path(@medication_history.user_id)
   end
   
   private

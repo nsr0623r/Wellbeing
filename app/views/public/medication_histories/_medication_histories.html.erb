@@ -3,4 +3,6 @@
   <%= medication_history.objective %>
   <%= medication_history.start_date %>
   <%= medication_history.end_date %>
+  <%= link_to "編集", edit_medication_history_path(medication_history.id) %>
+  <%= link_to "削除", medication_history_path(medication_history.id), method: :delete %>
 <% end %>

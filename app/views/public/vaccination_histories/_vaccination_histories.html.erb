@@ -2,4 +2,6 @@
   <%= vaccination_history.inoculation_date %>
   <%= vaccination_history.amount %>
   <%= vaccination_history.vaccination %>
+  <%= link_to "編集", edit_vaccination_history_path(vaccination_history.id) %>
+  <%= link_to "削除", vaccination_history_path(vaccination_history.id), method: :delete %>
 <% end %>
