@@ -1,2 +1,222 @@
 <h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+
+<%= form_with model: @post, url: posts_path do |f| %>
+  <p>登録日</p>
+    <%= f.date_select :start_time %>
+  
+  <p>体温</p>
+  <%= f.text_field :temperature %>
+  
+  <p>体重</p>
+  <%= f.text_field :weight %>
+  
+  <p>体脂肪率</p>
+  <%= f.text_field :body_fat_percentage %>
+  
+  <p>コメント</p>
+  <%= f.text_field :posted_text %>
+  
+  <p>画像</p>
+  <%#= f.file_field :image, accept: "image/*" %>
+  
+  <div>
+    <p>生理</p>
+    <p>経血量</p>
+    <div>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(0) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_little] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(1) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_a_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_a_little] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(2) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_normal, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_normal] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(3) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_some, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_some] %>
+      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(4) %>
+      <%= f.label :menstrual_blood_volume_menstrual_blood_much, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_much] %>
+    </div>
+    
+    <p>生理痛</p>
+    <div>
+      <%= f.radio_button :cramps, Physiology.cramps.key(0) %>
+      <%= f.label :cramps_none, Physiology.cramps_i18n[:cramps_none] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(1) %>
+      <%= f.label :cramps_light, Physiology.cramps_i18n[:cramps_light] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(2) %>
+      <%= f.label :cramps_somewhat, Physiology.cramps_i18n[:cramps_somewhat] %>
+      <%= f.radio_button :cramps, Physiology.cramps.key(3) %>
+      <%= f.label :cramps_heavy, Physiology.cramps_i18n[:cramps_heavy] %>
+      </div>
+    
+    <%= f.check_box :medicine, class: "select_group" %>
+    <%= f.label(:medicine, 'くすり', class: "box") %>
+    
+    <p>生理開始日</p>
+    <%= f.date_field :physiology_start_date %>
+    
+    <p>生理終了日</p>
+    <%= f.date_field :physiology_end_date %>
+  </div>
+  
+  <div>
+    <div>
+      <p>からだ</p>
+      <%= f.check_box :physical_good, class: "select_group" %>
+      <%= f.label(:physical_good, "良好", class: "box") %>
+
+      <%= f.check_box :no_malfunction, class: "select_group" %>
+      <%= f.label(:no_malfunction, '不調なし', class: "box") %>
+      
+      <%= f.check_box :tired, class: "select_group" %>
+      <%= f.label(:tired, '疲れ', class: "box") %>
+      
+      <%= f.check_box :washed_out_feeling, class: "select_group" %>
+      <%= f.label(:washed_out_feeling, '倦怠感', class: "box") %>
+      
+      <%= f.check_box :lumbago, class: "select_group" %>
+      <%= f.label(:lumbago, '腰痛', class: "box") %>
+      
+      <%= f.check_box :stomach_ache, class: "select_group" %>
+      <%= f.label(:stomach_ache, '腹痛', class: "box") %>
+      
+      <%= f.check_box :headache, class: "select_group" %>
+      <%= f.label(:headache, '頭痛', class: "box") %>
+      
+      <%= f.check_box :rough_skin, class: "select_group" %>
+      <%= f.label(:rough_skin, '肌あれ', class: "box") %>
+      
+      <%= f.check_box :chilling_exposure, class: "select_group" %>
+      <%= f.label(:chilling_exposure, '冷え', class: "box") %>
+      
+      <%= f.check_box :swelling, class: "select_group" %>
+      <%= f.label(:swelling, 'むくみ', class: "box") %>
+      
+      <%= f.check_box :sleepiness, class: "select_group" %>
+      <%= f.label(:sleepiness, '眠気', class: "box") %>
+      
+      <%= f.check_box :increased_appetite, class: "select_group" %>
+      <%= f.label(:increased_appetite, '食欲が増す', class: "box") %>
+      
+      <%= f.check_box :low_appetite, class: "select_group" %>
+      <%= f.label(:low_appetite, '食欲がない', class: "box") %>
+      
+      <%= f.check_box :chest_pain, class: "select_group" %>
+      <%= f.label(:chest_pain, '胸のはり', class: "box") %>
+      
+      <%= f.check_box :nausea, class: "select_group" %>
+      <%= f.label(:nausea, '吐き気', class: "box") %>
+      
+      <%= f.check_box :dazziness, class: "select_group" %>
+      <%= f.label(:dazziness, 'めまい', class: "box") %>
+      
+      <%= f.check_box :pollakiuria, class: "select_group" %>
+      <%= f.label(:pollakiuria, '頻尿', class: "box") %>
+      
+      <%= f.check_box :hot_flash, class: "select_group" %>
+      <%= f.label(:hot_flash, 'ほてり', class: "box") %>
+      
+      <p>便通</p>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(0) %>
+        <%= f.label :defecute_good, PhysicalSymptom.defecutes_i18n[:defecute_good] %>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(1) %>
+        <%= f.label :defecute_constipated, PhysicalSymptom.defecutes_i18n[:constipated] %>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(2) %>
+        <%= f.label :defecute_diarrhea, PhysicalSymptom.defecutes_i18n[:diarrhea] %>
+        
+      <p>おりもの</p>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(0) %>
+        <%= f.label :vaginal_discharge_little, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_little] %>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(1) %>
+        <%= f.label :vaginal_discharge_normal, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_normal] %>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(2) %>
+        <%= f.label :vaginal_discharge_a_lot, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_a_lot] %>
+        
+      <p>おりものの性質</p>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(0) %>
+        <%= f.label :stickiness, PhysicalSymptom.vaginal_discharge_types_i18n[:stickiness] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(1) %>
+        <%= f.label :cream, PhysicalSymptom.vaginal_discharge_types_i18n[:cream] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(2) %>
+        <%= f.label :stillness, PhysicalSymptom.vaginal_discharge_types_i18n[:stillness] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(3) %>
+        <%= f.label :watery, PhysicalSymptom.vaginal_discharge_types_i18n[:watery] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(4) %>
+        <%= f.label :in_large_drops, PhysicalSymptom.vaginal_discharge_types_i18n[:in_large_drops] %>
+        
+      <p>不正出血</p>
+        <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(0) %>
+        <%= f.label :vaginal_bleeding_little, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_little] %>
+        <%= f.radio_button :vaginal_bleeding, PhysicalSymptom.vaginal_bleedings.key(1) %>
+        <%= f.label :vaginal_bleeding_existing, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_existing] %>
+        <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(2) %>
+        <%= f.label :vaginal_bleeding_a_lot, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_a_lot] %>
+        
+      <p>性行為</p>
+        <%= f.radio_button :sex, PhysicalSymptom.sexes.key(0) %>
+        <%= f.label :unprotected, PhysicalSymptom.sexes_i18n[:unprotected] %>
+        <%= f.radio_button :sex, PhysicalSymptom.sexes.key(1) %>
+        <%= f.label :contraceptive, PhysicalSymptom.sexes_i18n[:contraceptive] %>
+    </div>
+    
+    <div>
+      <p>こころ</p>
+        <%= f.check_box :mental_good, class: "select_group" %>
+        <%= f.label(:mental_good, '良好', value: true, class: "box") %>
+        
+        <%= f.check_box :mental_normal, class: "select_group" %>
+        <%= f.label(:mental_normal, '普通', class: "box") %>
+        
+        <%= f.check_box :frustrating, class: "select_group" %>
+        <%= f.label(:frustrating, 'イライラ', class: "box") %>
+        
+        <%= f.check_box :hot_tempered, class: "select_group" %>
+        <%= f.label(:hot_tempered, '怒りっぽい', class: "box") %>
+        
+        <%= f.check_box :emotional_instability, class: "select_group" %>
+        <%= f.label(:emotional_instability, '情緒不安定', class: "box") %>
+        
+        <%= f.check_box :emotional, class: "select_group" %>
+        <%= f.label(:emotional, '感情的', class: "box") %>
+        
+        <%= f.check_box :uneasiness, class: "select_group" %>
+        <%= f.label(:uneasiness, '不安', class: "box") %>
+        
+        <%= f.check_box :poor_concentrtion, class: "select_group" %>
+        <%= f.label(:poor_concentrtion, '集中力低下', class: "box") %>
+        
+        <%= f.check_box :lethargy, class: "select_group" %>
+        <%= f.label(:lethargy, '無気力', class: "box") %>
+        
+        <%= f.check_box :melancholy, class: "select_group" %>
+        <%= f.label(:melancholy, 'ゆううつ', class: "box") %>
+    </div>
+    
+    <div>
+      <p>妊娠中</p>
+        <%= f.check_box :morning_sickness, class: "select_group" %>
+        <%= f.label(:morning_sickness, 'つわり', class: "box") %>
+        
+        <%= f.check_box :belching, class: "select_group" %>
+        <%= f.label(:belching, 'お腹のはり', class: "box") %>
+        
+        <%= f.check_box :backache_during_pregnancy, class: "select_group" %>
+        <%= f.label(:backache_during_pregnancy, '腰のおもさ', class: "box") %>
+        
+        <%= f.check_box :anaemia, class: "select_group" %>
+        <%= f.label(:anaemia, '貧血', class: "box") %>
+        
+        <%= f.check_box :sour_stomach, class: "select_group" %>
+        <%= f.label(:sour_stomach, '胸やけ', class: "box") %>
+        
+        <%= f.check_box :pulsation, class: "select_group" %>
+        <%= f.label(:pulsation, '動悸', class: "box") %>
+    </div>
+
+    <%= f.label '公開する' %>
+    <%= f.select :release, [["公開", true], ["非公開", false]], include_blank: "選択してください" %>
+  </div>
+  
+  <p><%= f.submit '投稿' %></p>
+  
+<% end %>
+
+<%= link_to "戻る", post_path(@post) %>

@@ -14,7 +14,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:physiology, :physical_symptom, :mental_manifestation, :pregnancy)
+    # @posts = Post.includes(:physiology, :physical_symptom, :mental_manifestation, :pregnancy)
+    @posts = Post.all
     @post_comment = PostComment.new
   end
 
@@ -24,12 +25,22 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    if @post.update
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
   
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to :posts_path
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
   
   private
