@@ -3,7 +3,7 @@ class PostForm
   include ActiveModel::Attributes
   include ActiveRecord::AttributeAssignment
   
-  attr_accessor :posted_text, :temperature, :weight, :body_fat_percentage, :start_time, :release, :post_id, :user_id,
+  attr_accessor :posted_text, :temperature, :weight, :body_fat_percentage, :start_time, :release, :post_id, :user_id, :image,
                 :menstrual_blood_volume, :cramps, :medicine, :physiology_start_date, :physiology_end_date,
                 :physical_good, :no_malfunction, :tired, :washed_out_feeling, :lumbago, :stomach_ache, :headache, :rough_skin, :chilling_exposure,
                 :swelling, :sleepiness, :increased_appetite, :low_appetite, :chest_pain, :nausea, :dazziness, :pollakiuria, :hot_flash, :defecute,
@@ -13,7 +13,7 @@ class PostForm
                 :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation
   
   def save
-    @post = Post.create!(posted_text: posted_text, temperature: temperature, weight: weight, body_fat_percentage: body_fat_percentage, start_time: start_time, release: release, user_id: user_id)
+    @post = Post.create!(posted_text: posted_text, temperature: temperature, weight: weight, body_fat_percentage: body_fat_percentage, start_time: start_time, release: release, user_id: user_id, image: image)
     Physiology.create!(menstrual_blood_volume: menstrual_blood_volume, cramps: cramps, medicine: medicine, physiology_start_date: physiology_start_date, physiology_end_date: physiology_end_date, post_id: @post.id)
     PhysicalSymptom.create!(physical_good: physical_good, no_malfunction: no_malfunction, tired: tired, washed_out_feeling: washed_out_feeling,
                             lumbago: lumbago, stomach_ache: stomach_ache, headache: headache, rough_skin: rough_skin, chilling_exposure: chilling_exposure,

@@ -46,7 +46,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post_form).permit(:posted_text, :temperature, :weight, :body_fat_percentage, :start_time, :release,:user_id,
+    params.require(:post_form).permit(:posted_text, :temperature, :weight, :body_fat_percentage, :start_time, :release,:user_id, :image,
                                       :menstrual_blood_volume, :cramps, :medicine, :physiology_start_date, :physiology_end_date, :post_id,
                                       :physical_good, :no_malfunction, :tired, :washed_out_feeling, :lumbago, :stomach_ache, :headache,
                                       :rough_skin, :chilling_exposure, :swelling, :sleepiness, :increased_appetite, :low_appetite, :chest_pain,

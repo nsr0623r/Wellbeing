@@ -13,10 +13,12 @@ class User < ApplicationRecord
   has_many :medication_histories, dependent: :destroy
   has_many :vaccination_histoies, dependent: :destroy
   
+  has_one_attached :icon
+  
   # フォローした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  # フォローに関しtて一覧画面で使用
+  # フォローに関して一覧画面で使用
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
     # フォローしたときの処理
