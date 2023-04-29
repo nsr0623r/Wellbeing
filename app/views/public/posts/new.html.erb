@@ -16,11 +16,12 @@
   <p>コメント</p>
   <%= f.text_field :posted_text %>
   
-  <p>画像</p>
-  <%= f.file_field :image, accept: "image/*" %>
+  <!--<p>画像</p>-->
+  <%#= f.file_field :image, accept: "image/*" %>
   
-  <div>
-    <p>生理</p>
+ <details class="accordion-002">
+    <summary>生理</summary>
+    <div>
     <p>経血量</p>
     <div>
       <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(0) %>
@@ -55,11 +56,12 @@
     
     <p>生理終了日</p>
     <%= f.date_field :physiology_end_date %>
-  </div>
-  
-  <div>
+    </div>
+</details>
+
+<details class="accordion-002">
+    <summary>からだ</summary>
     <div>
-      <p>からだ</p>
       <%= f.check_box :physical_good, class: "select_group" %>
       <%= f.label(:physical_good, "良好", class: "box") %>
 
@@ -157,12 +159,13 @@
           <%= f.radio_button :sex, PhysicalSymptom.sexes.key(1) %>
           <%= f.label :contraceptive, PhysicalSymptom.sexes_i18n[:contraceptive] %>
       </div>
-      
     </div>
-    
+</details>
+
+<details class="accordion-002">
+    <summary>こころ</summary>
     <div>
-      <p>こころ</p>
-        <%= f.check_box :mental_good, class: "select_group" %>
+      <%= f.check_box :mental_good, class: "select_group" %>
         <%= f.label(:mental_good, '良好', value: true, class: "box") %>
         
         <%= f.check_box :mental_normal, class: "select_group" %>
@@ -192,10 +195,12 @@
         <%= f.check_box :melancholy, class: "select_group" %>
         <%= f.label(:melancholy, 'ゆううつ', class: "box") %>
     </div>
-    
+</details>
+
+<details class="accordion-002">
+    <summary>妊娠中</summary>
     <div>
-      <p>妊娠中</p>
-        <%= f.check_box :morning_sickness, class: "select_group" %>
+      <%= f.check_box :morning_sickness, class: "select_group" %>
         <%= f.label(:morning_sickness, 'つわり', class: "box") %>
         
         <%= f.check_box :belching, class: "select_group" %>
@@ -213,6 +218,7 @@
         <%= f.check_box :pulsation, class: "select_group" %>
         <%= f.label(:pulsation, '動悸', class: "box") %>
     </div>
+</details>
 
     <%= f.label '公開する' %>
     <%= f.select :release, [["公開", true], ["非公開", false]], include_blank: "選択してください" %>

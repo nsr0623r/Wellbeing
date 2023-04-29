@@ -6,7 +6,7 @@
     <p>体重<%= @post.weight %></p>
     <p>体脂肪率<%= @post.body_fat_percentage %></p>
     <p>コメント<%= @post.posted_text %></p>
-    <p>画像<%#= image_tag post.get_image %></p>
+    <!--<p>画像<%#= image_tag post.get_image %></p>-->
   </div>
   
   <% if @post.favorited_by?(current_user) %>

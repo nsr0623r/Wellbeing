@@ -1,6 +1,22 @@
-<h1>Public::Posts#index投稿一覧</h1>
+<div>
+  <h4>
+    <%= link_to new_post_path do %>
+      <i class="fa-solid fa-circle-plus"></i>
+    <% end %>
+  </h4>
+</div>
 
-<% @posts.each do |post| %>
+<div class="tabs mt-5">
+  <input id="all" type="radio" name="tab_item" checked>
+  <label class="tab_item" for="all">投稿一覧</label>
+  <input id="programming" type="radio" name="tab_item">
+  <label class="tab_item" for="programming">非公開投稿のみ</label>
+  <div class="tab_content" id="all_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <% @posts.each do |post| %>
+      </p>
+    </div>
 
   <p>_____________________________________________</p>
   
@@ -9,11 +25,11 @@
     <p>体重<%= post.weight %></p>
     <p>体脂肪率<%= post.body_fat_percentage %></p>
     <p>コメント<%= post.posted_text %></p>
-    <% if post.image.attached? %>
-      <p>画像<%= image_tag post.image %></p>
-    <% else %>
-      <%= image_tag 'no_image' %>
-    <% end %>
+    <%# if post.image.attached? %>
+      <!--<p>画像<%#= image_tag post.image %></p>-->
+    <%# else %>
+      <%#= image_tag 'no_image' %>
+    <%# end %>
   </div>
   
   <div>
@@ -33,10 +49,85 @@
     <p><%= post.physical_symptom.washed_out_feeling %></p>
     <p><%= post.physical_symptom.lumbago %></p>
     <p><%= post.physical_symptom.stomach_ache %></p>
+    <p>便通：<%= post.physical_symptom.defecute_i18n %></p>
+    <p>おりもの：<%= post.physical_symptom.vaginal_discharge_i18n %></p>
+    <p>おりものの性質：<%= post.physical_symptom.vaginal_discharge_type_i18n %></p>
+    <p>不正出血：<%= post.physical_symptom.vaginal_bleeding_i18n %></p>
+    <p>性行為：<%= post.physical_symptom.sex_i18n %></p>
+  </div>
+  
+  <div>
+    <p>こころ</p>
+    <p><%= post.mental_manifestation.mental_good %></p>
+    <p><%= post.mental_manifestation.mental_normal %></p>
+    <p><%= post.mental_manifestation.frustrating %></p>
+    <p><%= post.mental_manifestation.hot_tempered %></p>
+    <p><%= post.mental_manifestation.emotional_instability %></p>
+    <p><%= post.mental_manifestation.emotional %></p>
+    <p><%= post.mental_manifestation.uneasiness %></p>
+    <p><%= post.mental_manifestation.poor_concentrtion %></p>
+    <p><%= post.mental_manifestation.lethargy %></p>
+    <p><%= post.mental_manifestation.melancholy %></p>
+  </div>
+  
+  <div>
+    <p>妊娠中</p>
+    <p><%= post.pregnancy.morning_sickness %></p>
+    <p><%= post.pregnancy.belching %></p>
+    <p><%= post.pregnancy.backache_during_pregnancy %></p>
+    <p><%= post.pregnancy.anaemia %></p>
+    <p><%= post.pregnancy.sour_stomach %></p>
+    <p><%= post.pregnancy.pulsation %></p>
   </div>
   
   <%= link_to post_path(post.id) do %>
     <i class="fa-regular fa-comment"></i>
   <% end %>
+
+<% end %>
+
+
+
+
+<div class="tab_content" id="programming_content">
+    <div class="tab_content_description">
+      <p class="c-txtsp">
+        <% @privates.each do |private| %>
+      </p>
+    </div>
+
+  <p>_____________________________________________</p>
+  
+  <div>
+    <p>体温<%= private.temperature %></p>
+    <p>体重<%= private.weight %></p>
+    <p>体脂肪率<%= private.body_fat_percentage %></p>
+    <p>コメント<%= private.posted_text %></p>
+    <%# if post.image.attached? %>
+      <!--<p>画像<%#= image_tag post.image %></p>-->
+    <%# else %>
+      <%#= image_tag 'no_image' %>
+    <%# end %>
+  </div>
+  
+  <div>
+    <p>生理</p>
+    <p>生理開始日<%= private.physiology.physiology_start_date %></p>
+    <p>生理終了日<%= private.physiology.physiology_end_date %></p>
+    <p>経血量<%= private.physiology.menstrual_blood_volume_i18n %></p>
+    <p>生理痛<%= private.physiology.cramps_i18n %></p>
+    <p>くすり<%= private.physiology.medicine %></p>
+  </div>
+  
+  <div>
+    <p>からだ</p>
+    <p><%= private.physical_symptom.physical_good %></p>
+    <p><%= private.physical_symptom.no_malfunction %></p>
+    <p><%= private.physical_symptom.tired %></p>
+    <p><%= private.physical_symptom.washed_out_feeling %></p>
+    <p><%= private.physical_symptom.lumbago %></p>
+    <p><%= private.physical_symptom.stomach_ache %></p>
+    <p></p>
+  </div>
 
 <% end %>

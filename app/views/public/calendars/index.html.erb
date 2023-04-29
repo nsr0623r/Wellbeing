@@ -1,7 +1,7 @@
 <h1>Public::Calendars#index カレンダー</h1>
 
-  <%= month_calendar posts: @physiologies do |date, physiologies| %>
-    <% link_to new_post_path, class: "physiology-icon" do %>
-      <i class="fa-solid fa-heart"><%= date.day %></i>
+  <%= month_calendar posts: @posts do |date, post| %>
+    <% link_to new_post_path(date), class: "physiology-icon" do %>
+      <%= date.day %>
     <% end %>
   <% end %>

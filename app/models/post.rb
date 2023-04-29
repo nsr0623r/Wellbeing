@@ -12,6 +12,9 @@ class Post < ApplicationRecord
   
   belongs_to :user
   
+  scope :published, -> {where(release: true)}
+  scope :unpublished, -> {where(release: false)}
+  
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

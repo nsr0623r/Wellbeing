@@ -1,6 +1,7 @@
 class Public::PostsController < ApplicationController
   def new
     @post = PostForm.new
+    @calendar = Calendar.all
   end
   
   def create
@@ -14,8 +15,8 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    # @posts = Post.includes(:physiology, :physical_symptom, :mental_manifestation, :pregnancy)
-    @posts = Post.all
+    @posts = Post.published
+    @privates = Post.unpublished
     @post_comment = PostComment.new
   end
 

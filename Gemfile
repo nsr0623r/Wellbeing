@@ -64,6 +64,7 @@ gem 'enum_help'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
 gem 'groupdate'
+gem 'pry-rails'
 
 gem 'dotenv-rails'
 group :production do
