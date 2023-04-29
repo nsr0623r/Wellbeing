@@ -16,6 +16,7 @@
   <%= link_to "フォローする", users_relationships_path(@user.id), method: :post %>
 <% end %>
 
+<% if @user.id = current_user.id %>
 <!--受信歴登録-->
 <p>受診歴</p>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -178,7 +179,7 @@
 <!--出産歴-->
 <p>出産歴</p>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#birthModal">
-  登録
+  新規登録
 </button>
 <div class="history_of_birth">
   <%= render 'public/history_of_births/history_of_births', history_of_births: @history_of_births %>
@@ -215,3 +216,4 @@
     </div>
   </div>
 </div>
+<% end %>
