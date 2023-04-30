@@ -1,0 +1,42 @@
+<!--管理者：顧客詳細画面-->
+<div class="container">
+  <div class="m-4">
+    <h4 class="d-inline border border-secondary px-3">
+      <%= @user.name %>さんの会員詳細
+    </h4>
+  </div>
+  
+  <div class="row col-8">
+    <p class="col-3">会員ID</p>
+    <div class="col-9"><%= @user.id %></div>
+  </div>
+  <div class="row col-8">
+    <p class="col-3">ユーザーネーム</p>
+    <div class="col-9">
+      <%= @user.name %>
+    </div>
+  </div>
+  <div class="row col-8">
+    <p class="col-3">メールアドレス</p>
+    <div class="col-9"><%= @user.email %></div>
+  </div>
+  <div class="row col-8">
+    <p class="col-3">生年月日</p>
+    <div class="col-9"><%= @user.birthday %></div>
+  </div>
+  
+   <div class="row col-8">
+    <p class="col-3">会員ステータス</p>
+    <div class="col-9">
+      <% if @user.is_deleted == false %>
+        <strong class="text-success">有効</span>
+      <% else @user.is_deleted != false %>
+        <strong class="text-black-50">退会</span>
+      <% end %>
+    </div>
+  </div>
+  <p class="row col-5">
+    <%= link_to '編集する', edit_admin_user_path, class: "btn btn-success mx-auto d-block" %>
+    <%= link_to '会員一覧を見る', admin_users_path, class: "btn btn-primary ml-5" %>
+  </p>
+</div>

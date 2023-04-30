@@ -20,7 +20,9 @@
             <strong>Wellbe</strong>
           </a>
           <ul class="navbar-nav  ml-auto navbar-expand-lg">
-            <% if user_signed_in? %>
+            <% if admin_signed_in? %>
+              <%= render 'layouts/admin_header' %>
+            <% elsif user_signed_in? %>
               <%= render 'layouts/user_header' %>
             <% else %>
               <li class="nav-item mr-3">

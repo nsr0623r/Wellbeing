@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   # ユーザー側devise
   devise_for :users, skip: [:passwords], controllers: {
     sessions: "public/sessions",
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
   
   # 管理者側devise
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
   
@@ -40,5 +40,11 @@ Rails.application.routes.draw do
     resources :vaccination_histories
   end
   
+  # 管理者側routeing
+  namespace :admin do
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :posts, only: [:index, :show, :edit, :update]
+  end
+    
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
