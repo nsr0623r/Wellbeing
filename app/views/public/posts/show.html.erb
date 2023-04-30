@@ -1,5 +1,10 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div>
+  <p>ユーザーネーム：
+    <%= link_to users_path(@user) do %>
+      <%= @post.user.name %>
+    <% end %>
+  </p>
+</div>
 
   <div>
     <p>体温<%= @post.temperature %></p>

@@ -1,9 +1,11 @@
 class Public::UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   
   # ユーザーマイページ
   def show
     @user = current_user
+    # @post = @user.post
+    
     @commuting_to_hospital = CommutingToHospital.new
     @medication_history = MedicationHistory.new
     @health_history = HealthHistory.new
@@ -18,7 +20,7 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
   
   def update
@@ -46,9 +48,5 @@ class Public::UsersController < ApplicationController
   
   def user_params
     params.require(:user).permit(:name, :birthday, :email, :is_deleted)
-  end
-  
-  def commuting_to_hospital_params
-    params.require(:commuting_to_hospital).permit(:hospital_name, :day_of_a_hospital_visit, :objective)
   end
 end

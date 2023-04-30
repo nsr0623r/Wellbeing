@@ -1,13 +1,11 @@
-<h1>Public::Users#showマイページ</h1>
-
-<h1>登録情報</h1>
+<h4>登録情報</h4>
 
 <p>名前<%= @user.name %></p>
 <p>生年月日<%= @user.birthday %></p>
 <p>メールアドレス<%= @user.email %></p>
 
 <% if @user.id = current_user.id %>
-  <p><%= link_to '編集する', information_edit_users_path(@user), class: "btn btn-outline-dark" %></p>
+  <p><%= link_to '編集する', user_registration_path, class: "btn btn-outline-dark" %></p>
 <% end %>
 
 <% if current_user.following?(@user) %>
@@ -17,16 +15,16 @@
 <% end %>
 
 <% if @user.id = current_user.id %>
-<!--受信歴登録-->
-<p>受診歴</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <!--受信歴登録-->
+  <p>受診歴</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   新規登録
-</button>
-<div class="commuting_to_hospital">
+  </button>
+  <div class="commuting_to_hospital">
   <%= render 'public/commuting_to_hospitals/commuting_to_hospitals', commuting_to_hospitals: @commuting_to_hospitals %>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  </div>
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,18 +51,18 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<!--服薬歴-->
-<p>服薬歴</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#medicineModal">
+  </div>
+  
+  <!--服薬歴-->
+  <p>服薬歴</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#medicineModal">
   新規登録
-</button>
-<div class="medication_history">
+  </button>
+  <div class="medication_history">
   <%= render 'public/medication_histories/medication_histories', medication_histories: @medication_histories %>
-</div>
-
-<div class="modal fade" id="medicineModal" tabindex="-1" role="dialog" aria-labelledby="medicineModalLabel" aria-hidden="true">
+  </div>
+  
+  <div class="modal fade" id="medicineModal" tabindex="-1" role="dialog" aria-labelledby="medicineModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -94,18 +92,18 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<!--既往歴-->
-<p>既往歴</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#healthModal">
+  </div>
+  
+  <!--既往歴-->
+  <p>既往歴</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#healthModal">
   新規登録
-</button>
-<div class="health_history">
+  </button>
+  <div class="health_history">
   <%= render 'public/health_histories/health_histories', health_histories: @health_histories %>
-</div>
-
-<div class="modal fade" id="healthModal" tabindex="-1" role="dialog" aria-labelledby="healthModalLabel" aria-hidden="true">
+  </div>
+  
+  <div class="modal fade" id="healthModal" tabindex="-1" role="dialog" aria-labelledby="healthModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -135,19 +133,19 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<!--ワクチン接種歴-->
-<p>ワクチン接種歴</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vaccinationModal">
+  </div>
+  
+  <!--ワクチン接種歴-->
+  <p>ワクチン接種歴</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vaccinationModal">
   新規登録
-</button>
-<div class="vaccination_history">
+  </button>
+  <div class="vaccination_history">
   <%= render 'public/vaccination_histories/vaccination_histories', vaccination_histories: @vaccination_histories %>
-</div>
-
-<div class="modal fade" id="vaccinationModal" tabindex="-1" role="dialog" aria-labelledby="vaccinationModalLabel" aria-hidden="true">
-
+  </div>
+  
+  <div class="modal fade" id="vaccinationModal" tabindex="-1" role="dialog" aria-labelledby="vaccinationModalLabel" aria-hidden="true">
+  
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -174,18 +172,18 @@
       <% end %>
     </div>
   </div>
-</div>
-
-<!--出産歴-->
-<p>出産歴</p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#birthModal">
+  </div>
+  
+  <!--出産歴-->
+  <p>出産歴</p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#birthModal">
   新規登録
-</button>
-<div class="history_of_birth">
+  </button>
+  <div class="history_of_birth">
   <%= render 'public/history_of_births/history_of_births', history_of_births: @history_of_births %>
-</div>
-
-<div class="modal fade" id="birthModal" tabindex="-1" role="dialog" aria-labelledby="birthModalLabel" aria-hidden="true">
+  </div>
+  
+  <div class="modal fade" id="birthModal" tabindex="-1" role="dialog" aria-labelledby="birthModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

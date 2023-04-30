@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'information/edit' => 'users#edit', as: 'information_edit'
       patch 'information' => 'users#update', as: 'information'
       get 'unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
-      patch 'withdraw' => 'usesrs#withdraw', as: 'withdraw'
+      patch 'withdraw' => 'users#withdraw', as: 'withdraw'
       resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
