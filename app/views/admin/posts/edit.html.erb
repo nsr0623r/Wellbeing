@@ -1,2 +1,44 @@
-<h1>Admin::Posts#edit</h1>
-<p>Find me in app/views/admin/posts/edit.html.erb</p>
+<!--管理者：商品編集画面-->
+<div class="container">
+  <div class="m-4">
+    <h4 class="d-inline border border-secondary px-3 mb-5">投稿編集</h4>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-sm-8">
+      <div class="row">
+        <p class="col-sm-3">投稿ID</p>
+        <div class="col-sm-9"><%= @post.id %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿ユーザー</p>
+        <div class="col-sm-9"><%= @post.user.name %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿内容(テキスト部分のみ)</p>
+        <div class="col-sm-9"><%= @post.posted_text %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿日時</p>
+        <div class="col-sm-9"><%= @post.created_at %></div>
+      </div>
+    </div>
+  </div>
+  
+  <%= form_with model: @post, url: admin_post_path(@post) do |f| %>
+    <div class="form-group row justify-content-center">
+      <span class="col-sm-2 col-form-label">投稿ステータス</span>
+      <div class="col-sm-2">
+        <%= f.radio_button :release, true %>
+        <%= f.label :release, '公開中', value: true %>
+      </div>
+      <div class="col-sm-4">
+        <%= f.radio_button :release, false %>
+        <%= f.label :release, '非公開', value: false %>
+      </div>
+    </div>
+    <p class="col">
+      <%= f.submit '変更を保存', class: "btn btn-success mx-auto d-block" %>
+    </p>
+  <% end %>
+</div>

@@ -1,2 +1,40 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<!--管理者：商品詳細画面-->
+<div class="container">
+  <div class="m-4">
+    <h4 class="d-inline border border-secondary px-3 mb-5">投稿詳細</h4>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-sm-8">
+      <div class="row">
+        <p class="col-sm-3">投稿ID</p>
+        <div class="col-sm-9"><%= @post.id %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿ユーザー</p>
+        <div class="col-sm-9"><%= @post.user.name %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿内容(テキスト部分のみ)</p>
+        <div class="col-sm-9"><%= @post.posted_text %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">投稿日時</p>
+        <div class="col-sm-9"><%= @post.created_at %></div>
+      </div>
+      <div class="row">
+        <p class="col-sm-3">公開ステータス</p>
+        <p class="col-sm-9">
+          <% if @post.release == true %>
+            <strong class="text-success">公開中</span>
+          <% else @post.release != true %>
+            <strong class="text-black-50">非公開</span>
+          <% end %>  
+        </p>
+      </div>
+    </div>
+  </div>
+  <p class="row">
+    <%= link_to '編集する', edit_admin_post_path(@post), class: "btn btn-success px-4 mx-auto d-block" %>
+  </p>
+</div>
