@@ -6,13 +6,14 @@
   </h4>
 </div>
 
-<div class="tabs mt-5">
-  <input id="all" type="radio" name="tab_item" checked>
-  <label class="tab_item" for="all">投稿一覧</label>
-  <input id="programming" type="radio" name="tab_item">
-  <label class="tab_item" for="programming">非公開投稿のみ</label>
-  <div class="tab_content" id="all_content">
-    <div class="tab_content_description">
+<div class="post_tabs mt-5">
+  <input id="release" type="radio" name="post_tab" checked>
+  <label class="post_tab" for="release">投稿一覧</label>
+  <input id="private" type="radio" name="post_tab">
+  <label class="post_tab" for="private">非公開投稿のみ</label>
+  
+  <div class="post_tab_content" id="release_content">
+    <div class="post_tab_content_description">
       <p class="c-txtsp">
         <% @posts.each do |post| %>
       </p>
@@ -87,10 +88,8 @@
 <% end %>
 
 
-
-
-<div class="tab_content" id="programming_content">
-    <div class="tab_content_description">
+<div class="private_content" id="private">
+    <div class="post_content_description">
       <p class="c-txtsp">
         <% @privates.each do |private| %>
       </p>
