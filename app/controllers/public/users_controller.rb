@@ -3,8 +3,7 @@ class Public::UsersController < ApplicationController
   
   # ユーザーマイページ
   def show
-    @user = current_user
-    
+    @user = User.find(params[:user_id])
     @commuting_to_hospital = CommutingToHospital.new
     @medication_history = MedicationHistory.new
     @health_history = HealthHistory.new
@@ -19,7 +18,7 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
   
   def update

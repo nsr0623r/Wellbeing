@@ -3,8 +3,8 @@ class Public::CommutingToHospitalsController < ApplicationController
     commuting_to_hospital = CommutingToHospital.new(commuting_to_hospital_params)
     commuting_to_hospital.user_id = current_user.id
     commuting_to_hospital.save!
+    
     @commuting_to_hospitals = CommutingToHospital.all
-    @commuting_to_hospital = CommutingToHospital.find(params[:id])
   end
   
   def edit

@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :commuting_to_hospitals, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :commuting_to_hospitals, dependent: :destroy
   has_many :history_of_birth, dependent: :destroy
   has_many :health_histories, dependent: :destroy
   has_many :medication_histories, dependent: :destroy

@@ -1,8 +1,10 @@
 <% history_of_births.each do |history_of_birth| %>
-  <%= history_of_birth.date_of_birth %>
-  <%= history_of_birth.parity %>
-  <%= history_of_birth.method %>
-  <%= history_of_birth.birth_record %>
-  <%= link_to "編集", edit_history_of_birth_path(history_of_birth.id) %>
-  <%= link_to "削除", history_of_birth_path(history_of_birth.id), method: :delete %>
+  <% if history_of_birth.user_id == current_user.id %>
+    <%= history_of_birth.date_of_birth %>
+    <%= history_of_birth.parity %>
+    <%= history_of_birth.method %>
+    <%= history_of_birth.birth_record %>
+    <%= link_to "編集", edit_history_of_birth_path(history_of_birth.id) %>
+    <%= link_to "削除", history_of_birth_path(history_of_birth.id), method: :delete %>
+  <% end %>
 <% end %>

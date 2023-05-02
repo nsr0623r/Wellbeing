@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
   
   def after_sign_in_path_for(resource)
-    my_page_users_path(resource)
+    user_my_page_path(resource)
   end
   
   def after_sign_out_path_for(resource)
