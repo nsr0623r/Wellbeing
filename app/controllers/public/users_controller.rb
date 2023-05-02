@@ -4,7 +4,6 @@ class Public::UsersController < ApplicationController
   # ユーザーマイページ
   def show
     @user = current_user
-    # @post = @user.post
     
     @commuting_to_hospital = CommutingToHospital.new
     @medication_history = MedicationHistory.new
