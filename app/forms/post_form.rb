@@ -11,6 +11,7 @@ class PostForm
                 :mental_good, :mental_normal, :frustrating, :hot_tempered, :emotional_instability, :emotional, :uneasiness, :poor_concentrtion,
                 :lethargy, :melancholy,
                 :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation
+                
   
   def save
     @post = Post.create!(posted_text: posted_text, temperature: temperature, weight: weight, body_fat_percentage: body_fat_percentage, start_time: start_time, release: release, user_id: user_id, image: image)

@@ -27,163 +27,102 @@
   <!--<p>画像</p>-->
   <%#= f.file_field :image, accept: "image/*" %>
   
- <details class="accordion-002">
+  <details class="accordion-002">
     <summary>生理</summary>
     <div>
-    <p>経血量</p>
-    <div>
-      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(0) %>
-      <%= f.label :menstrual_blood_volume_menstrual_blood_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_little] %>
-      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(1) %>
-      <%= f.label :menstrual_blood_volume_menstrual_blood_a_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_a_little] %>
-      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(2) %>
-      <%= f.label :menstrual_blood_volume_menstrual_blood_normal, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_normal] %>
-      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(3) %>
-      <%= f.label :menstrual_blood_volume_menstrual_blood_some, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_some] %>
-      <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(4) %>
-      <%= f.label :menstrual_blood_volume_menstrual_blood_much, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_much] %>
-    </div>
-    
-    <p>生理痛</p>
-    <div>
-      <%= f.radio_button :cramps, Physiology.cramps.key(0) %>
-      <%= f.label :cramps_none, Physiology.cramps_i18n[:cramps_none] %>
-      <%= f.radio_button :cramps, Physiology.cramps.key(1) %>
-      <%= f.label :cramps_light, Physiology.cramps_i18n[:cramps_light] %>
-      <%= f.radio_button :cramps, Physiology.cramps.key(2) %>
-      <%= f.label :cramps_somewhat, Physiology.cramps_i18n[:cramps_somewhat] %>
-      <%= f.radio_button :cramps, Physiology.cramps.key(3) %>
-      <%= f.label :cramps_heavy, Physiology.cramps_i18n[:cramps_heavy] %>
-      </div>
-    
-    <%= f.check_box :medicine, class: "select_group" %>
-    <%= f.label(:medicine, 'くすり', class: "box") %>
-    
-    <p>生理開始日</p>
-    <%= f.date_field :physiology_start_date %>
-    
-    <p>生理終了日</p>
-    <%= f.date_field :physiology_end_date %>
-    </div>
-</details>
-
-<details class="accordion-002">
-    <summary>からだ</summary>
-    
-    <div class="field">
-      <% f.label :physical %>
-      <% ["良好","疲れ","不調なし"].each do |physical| %>
-      <%= f.check_box :physical, {multiple: true}, physical, nil %>
-      <%= physical %>
-      <% end %>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    <div>
-      <%= f.check_box :physical_good, class: "select_group" %>
-      <%= f.label(:physical_good, "良好", class: "box") %>
-
-      <%= f.check_box :no_malfunction, class: "select_group" %>
-      <%= f.label(:no_malfunction, '不調なし', class: "box") %>
-      
-      <%= f.check_box :tired, class: "select_group" %>
-      <%= f.label(:tired, '疲れ', class: "box") %>
-      
-      <%= f.check_box :washed_out_feeling, class: "select_group" %>
-      <%= f.label(:washed_out_feeling, '倦怠感', class: "box") %>
-      
-      <%= f.check_box :lumbago, class: "select_group" %>
-      <%= f.label(:lumbago, '腰痛', class: "box") %>
-      
-      <%= f.check_box :stomach_ache, class: "select_group" %>
-      <%= f.label(:stomach_ache, '腹痛', class: "box") %>
-      
-      <%= f.check_box :headache, class: "select_group" %>
-      <%= f.label(:headache, '頭痛', class: "box") %>
-      
-      <%= f.check_box :rough_skin, class: "select_group" %>
-      <%= f.label(:rough_skin, '肌あれ', class: "box") %>
-      
-      <%= f.check_box :chilling_exposure, class: "select_group" %>
-      <%= f.label(:chilling_exposure, '冷え', class: "box") %>
-      
-      <%= f.check_box :swelling, class: "select_group" %>
-      <%= f.label(:swelling, 'むくみ', class: "box") %>
-      
-      <%= f.check_box :sleepiness, class: "select_group" %>
-      <%= f.label(:sleepiness, '眠気', class: "box") %>
-      
-      <%= f.check_box :increased_appetite, class: "select_group" %>
-      <%= f.label(:increased_appetite, '食欲が増す', class: "box") %>
-      
-      <%= f.check_box :low_appetite, class: "select_group" %>
-      <%= f.label(:low_appetite, '食欲がない', class: "box") %>
-      
-      <%= f.check_box :chest_pain, class: "select_group" %>
-      <%= f.label(:chest_pain, '胸のはり', class: "box") %>
-      
-      <%= f.check_box :nausea, class: "select_group" %>
-      <%= f.label(:nausea, '吐き気', class: "box") %>
-      
-      <%= f.check_box :dazziness, class: "select_group" %>
-      <%= f.label(:dazziness, 'めまい', class: "box") %>
-      
-      <%= f.check_box :pollakiuria, class: "select_group" %>
-      <%= f.label(:pollakiuria, '頻尿', class: "box") %>
-      
-      <%= f.check_box :hot_flash, class: "select_group" %>
-      <%= f.label(:hot_flash, 'ほてり', class: "box") %>
-      
+      <p>経血量</p>
       <div>
-        <p>便通</p>
-          <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(0) %>
-          <%= f.label :defecute_good, PhysicalSymptom.defecutes_i18n[:defecute_good] %>
-          <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(1) %>
-          <%= f.label :defecute_constipated, PhysicalSymptom.defecutes_i18n[:constipated] %>
-          <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(2) %>
-          <%= f.label :defecute_diarrhea, PhysicalSymptom.defecutes_i18n[:diarrhea] %>
-        
-        <p>おりもの</p>
-          <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(0) %>
-          <%= f.label :vaginal_discharge_little, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_little] %>
-          <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(1) %>
-          <%= f.label :vaginal_discharge_normal, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_normal] %>
-          <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(2) %>
-          <%= f.label :vaginal_discharge_a_lot, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_a_lot] %>
-          
-        <p>おりものの性質</p>
-          <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(0) %>
-          <%= f.label :stickiness, PhysicalSymptom.vaginal_discharge_types_i18n[:stickiness] %>
-          <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(1) %>
-          <%= f.label :cream, PhysicalSymptom.vaginal_discharge_types_i18n[:cream] %>
-          <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(2) %>
-          <%= f.label :stillness, PhysicalSymptom.vaginal_discharge_types_i18n[:stillness] %>
-          <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(3) %>
-          <%= f.label :watery, PhysicalSymptom.vaginal_discharge_types_i18n[:watery] %>
-          <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(4) %>
-          <%= f.label :in_large_drops, PhysicalSymptom.vaginal_discharge_types_i18n[:in_large_drops] %>
-          
-        <p>不正出血</p>
-          <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(0) %>
-          <%= f.label :vaginal_bleeding_little, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_little] %>
-          <%= f.radio_button :vaginal_bleeding, PhysicalSymptom.vaginal_bleedings.key(1) %>
-          <%= f.label :vaginal_bleeding_existing, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_existing] %>
-          <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(2) %>
-          <%= f.label :vaginal_bleeding_a_lot, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_a_lot] %>
-          
-        <p>性行為</p>
-          <%= f.radio_button :sex, PhysicalSymptom.sexes.key(0) %>
-          <%= f.label :unprotected, PhysicalSymptom.sexes_i18n[:unprotected] %>
-          <%= f.radio_button :sex, PhysicalSymptom.sexes.key(1) %>
-          <%= f.label :contraceptive, PhysicalSymptom.sexes_i18n[:contraceptive] %>
+        <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(0) %>
+        <%= f.label :menstrual_blood_volume_menstrual_blood_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_little] %>
+        <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(1) %>
+        <%= f.label :menstrual_blood_volume_menstrual_blood_a_little, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_a_little] %>
+        <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(2) %>
+        <%= f.label :menstrual_blood_volume_menstrual_blood_normal, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_normal] %>
+        <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(3) %>
+        <%= f.label :menstrual_blood_volume_menstrual_blood_some, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_some] %>
+        <%= f.radio_button :menstrual_blood_volume, Physiology.menstrual_blood_volumes.key(4) %>
+        <%= f.label :menstrual_blood_volume_menstrual_blood_much, Physiology.menstrual_blood_volumes_i18n[:menstrual_blood_much] %>
       </div>
+    
+      <p>生理痛</p>
+      <div>
+        <%= f.radio_button :cramps, Physiology.cramps.key(0) %>
+        <%= f.label :cramps_none, Physiology.cramps_i18n[:cramps_none] %>
+        <%= f.radio_button :cramps, Physiology.cramps.key(1) %>
+        <%= f.label :cramps_light, Physiology.cramps_i18n[:cramps_light] %>
+        <%= f.radio_button :cramps, Physiology.cramps.key(2) %>
+        <%= f.label :cramps_somewhat, Physiology.cramps_i18n[:cramps_somewhat] %>
+        <%= f.radio_button :cramps, Physiology.cramps.key(3) %>
+        <%= f.label :cramps_heavy, Physiology.cramps_i18n[:cramps_heavy] %>
+      </div>
+    
+      <%= f.check_box :medicine, class: "select_group" %>
+      <%= f.label(:medicine, 'くすり', class: "box") %>
+      
+      <p>生理開始日</p>
+      <%= f.date_field :physiology_start_date %>
+      
+      <p>生理終了日</p>
+      <%= f.date_field :physiology_end_date %>
     </div>
-</details>
+  </details>
+
+  <details class="accordion-002">
+    <summary>からだ</summary>
+    <div>
+      <div class="field">
+        <%# f.label :physical %>
+        <% ["良好","疲れ","不調なし","倦怠感","腰痛","腹痛","頭痛","肌あれ","冷え","むくみ","眠気","食欲が増す","食欲がない","胸のはり","吐き気","めまい","頻尿","ほてり"].each do |physical| %>
+        <label class="box">
+        <%= f.check_box :physical, {multiple: true}, physical, nil %>
+          <%= physical %>
+          </label>
+        <% end %>
+      </div>
+    
+      <p>便通</p>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(0) %>
+        <%= f.label :defecute_good, PhysicalSymptom.defecutes_i18n[:defecute_good] %>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(1) %>
+        <%= f.label :defecute_constipated, PhysicalSymptom.defecutes_i18n[:constipated] %>
+        <%= f.radio_button :defecute, PhysicalSymptom.defecutes.key(2) %>
+        <%= f.label :defecute_diarrhea, PhysicalSymptom.defecutes_i18n[:diarrhea] %>
+      
+      <p>おりもの</p>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(0) %>
+        <%= f.label :vaginal_discharge_little, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_little] %>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(1) %>
+        <%= f.label :vaginal_discharge_normal, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_normal] %>
+        <%= f.radio_button :vaginal_discharge, PhysicalSymptom.vaginal_discharges.key(2) %>
+        <%= f.label :vaginal_discharge_a_lot, PhysicalSymptom.vaginal_discharges_i18n[:vaginal_discharge_a_lot] %>
+        
+      <p>おりものの性質</p>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(0) %>
+        <%= f.label :stickiness, PhysicalSymptom.vaginal_discharge_types_i18n[:stickiness] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(1) %>
+        <%= f.label :cream, PhysicalSymptom.vaginal_discharge_types_i18n[:cream] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(2) %>
+        <%= f.label :stillness, PhysicalSymptom.vaginal_discharge_types_i18n[:stillness] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(3) %>
+        <%= f.label :watery, PhysicalSymptom.vaginal_discharge_types_i18n[:watery] %>
+        <%= f.radio_button :vaginal_discharge_type, PhysicalSymptom.vaginal_discharge_types.key(4) %>
+        <%= f.label :in_large_drops, PhysicalSymptom.vaginal_discharge_types_i18n[:in_large_drops] %>
+        
+      <p>不正出血</p>
+        <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(0) %>
+        <%= f.label :vaginal_bleeding_little, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_little] %>
+        <%= f.radio_button :vaginal_bleeding, PhysicalSymptom.vaginal_bleedings.key(1) %>
+        <%= f.label :vaginal_bleeding_existing, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_existing] %>
+        <%= f.radio_button :vafinal_bleeding, PhysicalSymptom.vaginal_bleedings.key(2) %>
+        <%= f.label :vaginal_bleeding_a_lot, PhysicalSymptom.vaginal_bleedings_i18n[:vaginal_bleeding_a_lot] %>
+        
+      <p>性行為</p>
+        <%= f.radio_button :sex, PhysicalSymptom.sexes.key(0) %>
+        <%= f.label :unprotected, PhysicalSymptom.sexes_i18n[:unprotected] %>
+        <%= f.radio_button :sex, PhysicalSymptom.sexes.key(1) %>
+        <%= f.label :contraceptive, PhysicalSymptom.sexes_i18n[:contraceptive] %>
+    </div>
+  </details>
 
 <details class="accordion-002">
     <summary>こころ</summary>
@@ -245,7 +184,6 @@
 
     <%= f.label '公開する' %>
     <%= f.select :release, [["公開", true], ["非公開", false]], include_blank: "選択してください" %>
-  </div>
   
   <p><%= f.submit '投稿' %></p>
 
