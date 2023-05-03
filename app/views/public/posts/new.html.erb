@@ -1,20 +1,28 @@
-<h1>Public::Posts#new新規投稿</h1>
-
 <%= form_with model: @post, url: posts_path do |f| %>
-  <p>登録日</p>
+  <p>
+    <%= f.label "登録日" %>
     <%= f.date_select :start_time %>
+  </p>
   
-  <p>体温</p>
-  <%= f.text_field :temperature %>
+  <p>
+    <%= f.label "体温" %>
+    <%= f.text_field :temperature %>
+  </p>
   
-  <p>体重</p>
-  <%= f.text_field :weight %>
+  <p>
+    <%= f.label "体重" %>
+    <%= f.text_field :weight %>
+  </p>
   
-  <p>体脂肪率</p>
-  <%= f.text_field :body_fat_percentage %>
+  <p>
+    <%= f.label "体脂肪率" %>
+    <%= f.text_field :body_fat_percentage %>
+  </p>
   
-  <p>コメント</p>
-  <%= f.text_field :posted_text %>
+  <p>
+    <%= f.label "コメント" %>
+    <%= f.text_field :posted_text %>
+  </p>
   
   <!--<p>画像</p>-->
   <%#= f.file_field :image, accept: "image/*" %>
@@ -61,6 +69,7 @@
 
 <details class="accordion-002">
     <summary>からだ</summary>
+    
     <div>
       <%= f.check_box :physical_good, class: "select_group" %>
       <%= f.label(:physical_good, "良好", class: "box") %>

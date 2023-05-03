@@ -56,6 +56,6 @@ class Public::PostsController < ApplicationController
                                       :vaginal_bleeding, :sex,
                                       :mental_good, :mental_normal, :frustrating, :hot_tempered, :emotional_instability,
                                       :emotional, :uneasiness, :poor_concentrtion, :lethargy, :melancholy,
-                                      :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation)
+                                      :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation, :checkbox)
   end
 end
