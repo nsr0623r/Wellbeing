@@ -25,6 +25,7 @@ class CreatePhysicalSymptoms < ActiveRecord::Migration[6.1]
       t.integer :vaginal_discharge_type
       t.integer :vaginal_bleeding
       t.integer :sex
+      t.text :physical
 
       t.timestamps
     end

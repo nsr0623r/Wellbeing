@@ -13,6 +13,7 @@ module Wellbeing
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.time_zone = 'Tokyo'
+    config.action_view.automatically_disable_submit_tag = false
 
     # Configuration for the application, engines, and railties goes here.
     #

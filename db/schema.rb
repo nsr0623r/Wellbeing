@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 2023_04_27_085530) do
     t.integer "vaginal_discharge_type"
     t.integer "vaginal_bleeding"
     t.integer "sex"
+    t.text "physical"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

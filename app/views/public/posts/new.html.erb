@@ -70,6 +70,20 @@
 <details class="accordion-002">
     <summary>からだ</summary>
     
+    <div class="field">
+      <% f.label :physical %>
+      <% ["良好","疲れ","不調なし"].each do |physical| %>
+      <%= f.check_box :physical, {multiple: true}, physical, nil %>
+      <%= physical %>
+      <% end %>
+    </div>
+    
+    
+    
+    
+    
+    
+    
     <div>
       <%= f.check_box :physical_good, class: "select_group" %>
       <%= f.label(:physical_good, "良好", class: "box") %>
