@@ -70,7 +70,7 @@
   <details class="accordion-002">
     <summary>からだ</summary>
     <div>
-      <div class="field">
+      <div class="field select_group">
         <%# f.label :physical %>
           <%# ["良好","疲れ","不調なし","倦怠感","腰痛","腹痛","頭痛","肌あれ","冷え","むくみ","眠気","食欲が増す","食欲がない","胸のはり","吐き気","めまい","頻尿","ほてり"].each do |physical| %>
           <!--<label class="box">-->
@@ -79,6 +79,14 @@
             <%#= physical %>
             <!--</label>-->
           <%# end %>
+          <div>
+            <label for="checkbox1" class="box">良好</label>
+            <input type="checkbox" id="checkbox1" name="physical[]">
+         </div>
+         <div>
+            <label for="checkbox2" class="box">疲れ</label>
+            <input type="checkbox" id="checkbox2" name="physical[]">
+         </div>
       </div>
     
       <p>便通</p>
