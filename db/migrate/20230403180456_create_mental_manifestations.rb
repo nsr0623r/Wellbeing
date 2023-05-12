@@ -12,6 +12,7 @@ class CreateMentalManifestations < ActiveRecord::Migration[6.1]
       t.boolean :poor_concentrtion
       t.boolean :lethargy
       t.boolean :melancholy
+      t.text :mental
 
       t.timestamps
     end

@@ -8,6 +8,7 @@ class CreatePregnancies < ActiveRecord::Migration[6.1]
       t.boolean :anaemia
       t.boolean :sour_stomach
       t.boolean :pulsation
+      t.text :pregnancy
 
       t.timestamps
     end
