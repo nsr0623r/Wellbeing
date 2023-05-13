@@ -71,22 +71,13 @@
     <summary>からだ</summary>
     <div>
       <div class="field select_group">
-        <%# f.label :physical %>
-          <%# ["良好","疲れ","不調なし","倦怠感","腰痛","腹痛","頭痛","肌あれ","冷え","むくみ","眠気","食欲が増す","食欲がない","胸のはり","吐き気","めまい","頻尿","ほてり"].each do |physical| %>
-          <!--<label class="box">-->
-          <%#= f.check_box :physical, {multiple: true}, physical, nil %>
-          
-            <%#= physical %>
-            <!--</label>-->
-          <%# end %>
-          <div>
-            <label for="checkbox1" class="box">良好</label>
-            <input type="checkbox" id="checkbox1" name="physical[]">
-         </div>
-         <div>
-            <label for="checkbox2" class="box">疲れ</label>
-            <input type="checkbox" id="checkbox2" name="physical[]">
-         </div>
+        <% f.label :physical %>
+          <% ["良好","疲れ","不調なし","倦怠感","腰痛","腹痛","頭痛","肌あれ","冷え","むくみ","眠気","食欲が増す","食欲がない","胸のはり","吐き気","めまい","頻尿","ほてり"].each do |physical| %>
+          <label class="box">
+          <%= f.check_box :physical, {multiple: true}, physical, nil %>
+            <%= physical %>
+            </label>
+          <% end %>
       </div>
     
       <p>便通</p>
@@ -136,58 +127,80 @@
 <details class="accordion-002">
     <summary>こころ</summary>
     <div>
-      <%= f.check_box :mental_good, class: "select_group" %>
-        <%= f.label(:mental_good, '良好', value: true, class: "box") %>
+      <div class="field select_group">
+        <% f.label :mental %>
+          <% ["良好","普通","イライラ","怒りっぽい","情緒不安定","感情的","不安","集中力低下","無気力","ゆううつ"].each do |mental| %>
+          <label class="box">
+          <%= f.check_box :mental, {multiple: true}, mental, nil %>
+            <%= mental %>
+            </label>
+          <% end %>
+      </div>
+      
+      <div>
+      <%#= f.check_box :mental_good, class: "select_group" %>
+        <%#= f.label(:mental_good, '良好', value: true, class: "box") %>
         
-        <%= f.check_box :mental_normal, class: "select_group" %>
-        <%= f.label(:mental_normal, '普通', class: "box") %>
+        <%#= f.check_box :mental_normal, class: "select_group" %>
+        <%#= f.label(:mental_normal, '普通', class: "box") %>
         
-        <%= f.check_box :frustrating, class: "select_group" %>
-        <%= f.label(:frustrating, 'イライラ', class: "box") %>
+        <%#= f.check_box :frustrating, class: "select_group" %>
+        <%#= f.label(:frustrating, 'イライラ', class: "box") %>
         
-        <%= f.check_box :hot_tempered, class: "select_group" %>
-        <%= f.label(:hot_tempered, '怒りっぽい', class: "box") %>
+        <%#= f.check_box :hot_tempered, class: "select_group" %>
+        <%#= f.label(:hot_tempered, '怒りっぽい', class: "box") %>
         
-        <%= f.check_box :emotional_instability, class: "select_group" %>
-        <%= f.label(:emotional_instability, '情緒不安定', class: "box") %>
+        <%#= f.check_box :emotional_instability, class: "select_group" %>
+        <%#= f.label(:emotional_instability, '情緒不安定', class: "box") %>
         
-        <%= f.check_box :emotional, class: "select_group" %>
-        <%= f.label(:emotional, '感情的', class: "box") %>
+        <%#= f.check_box :emotional, class: "select_group" %>
+        <%#= f.label(:emotional, '感情的', class: "box") %>
         
-        <%= f.check_box :uneasiness, class: "select_group" %>
-        <%= f.label(:uneasiness, '不安', class: "box") %>
+        <%#= f.check_box :uneasiness, class: "select_group" %>
+        <%#= f.label(:uneasiness, '不安', class: "box") %>
         
-        <%= f.check_box :poor_concentrtion, class: "select_group" %>
-        <%= f.label(:poor_concentrtion, '集中力低下', class: "box") %>
+        <%#= f.check_box :poor_concentrtion, class: "select_group" %>
+        <%#= f.label(:poor_concentrtion, '集中力低下', class: "box") %>
         
-        <%= f.check_box :lethargy, class: "select_group" %>
-        <%= f.label(:lethargy, '無気力', class: "box") %>
+        <%#= f.check_box :lethargy, class: "select_group" %>
+        <%#= f.label(:lethargy, '無気力', class: "box") %>
         
-        <%= f.check_box :melancholy, class: "select_group" %>
-        <%= f.label(:melancholy, 'ゆううつ', class: "box") %>
+        <%#= f.check_box :melancholy, class: "select_group" %>
+        <%#= f.label(:melancholy, 'ゆううつ', class: "box") %>
     </div>
 </details>
 
 <details class="accordion-002">
     <summary>妊娠中</summary>
     <div>
-      <%= f.check_box :morning_sickness, class: "select_group" %>
-        <%= f.label(:morning_sickness, 'つわり', class: "box") %>
+      <div class="field select_group">
+        <% f.label :pregnancy %>
+          <% ["つわり","お腹のはり","腰のおもさ","貧血","胸やけ","動悸"].each do |pregnancy| %>
+          <label class="box">
+          <%= f.check_box :pregnancy, {multiple: true}, pregnancy, nil %>
+            <%= pregnancy %>
+            </label>
+          <% end %>
+      </div>
+      
+      <div>
+      <%#= f.check_box :morning_sickness, class: "select_group" %>
+        <%#= f.label(:morning_sickness, 'つわり', class: "box") %>
         
-        <%= f.check_box :belching, class: "select_group" %>
-        <%= f.label(:belching, 'お腹のはり', class: "box") %>
+        <%#= f.check_box :belching, class: "select_group" %>
+        <%#= f.label(:belching, 'お腹のはり', class: "box") %>
         
-        <%= f.check_box :backache_during_pregnancy, class: "select_group" %>
-        <%= f.label(:backache_during_pregnancy, '腰のおもさ', class: "box") %>
+        <%#= f.check_box :backache_during_pregnancy, class: "select_group" %>
+        <%#= f.label(:backache_during_pregnancy, '腰のおもさ', class: "box") %>
         
-        <%= f.check_box :anaemia, class: "select_group" %>
-        <%= f.label(:anaemia, '貧血', class: "box") %>
+        <%#= f.check_box :anaemia, class: "select_group" %>
+        <%#= f.label(:anaemia, '貧血', class: "box") %>
         
-        <%= f.check_box :sour_stomach, class: "select_group" %>
-        <%= f.label(:sour_stomach, '胸やけ', class: "box") %>
+        <%#= f.check_box :sour_stomach, class: "select_group" %>
+        <%#= f.label(:sour_stomach, '胸やけ', class: "box") %>
         
-        <%= f.check_box :pulsation, class: "select_group" %>
-        <%= f.label(:pulsation, '動悸', class: "box") %>
+        <%#= f.check_box :pulsation, class: "select_group" %>
+        <%#= f.label(:pulsation, '動悸', class: "box") %>
     </div>
 </details>
 

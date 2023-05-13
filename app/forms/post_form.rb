@@ -9,8 +9,8 @@ class PostForm
                 :swelling, :sleepiness, :increased_appetite, :low_appetite, :chest_pain, :nausea, :dazziness, :pollakiuria, :hot_flash, :defecute,
                 :vaginal_discharge, :vaginal_discharge_type, :vaginal_bleeding, :sex,
                 :mental_good, :mental_normal, :frustrating, :hot_tempered, :emotional_instability, :emotional, :uneasiness, :poor_concentrtion,
-                :lethargy, :melancholy,
-                :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation
+                :lethargy, :melancholy, :mental,
+                :morning_sickness, :belching, :backache_during_pregnancy, :anaemia, :sour_stomach, :pulsation, :pregnancy
                 
   
   def save
@@ -24,8 +24,8 @@ class PostForm
                             sex: sex, post_id: @post.id, physical: physical)
     MentalManifestation.create!(mental_good: mental_good, mental_normal: mental_normal, frustrating: frustrating, hot_tempered: hot_tempered,
                                 emotional_instability: emotional_instability, emotional: emotional, uneasiness: uneasiness, poor_concentrtion: poor_concentrtion,
-                                lethargy: lethargy, melancholy: melancholy, post_id: @post.id)
+                                lethargy: lethargy, melancholy: melancholy, post_id: @post.id, mental: mental)
     Pregnancy.create!(morning_sickness: morning_sickness, belching: belching, backache_during_pregnancy: backache_during_pregnancy, anaemia: anaemia,
-                      sour_stomach: sour_stomach, pulsation: pulsation, post_id: @post.id)
+                      sour_stomach: sour_stomach, pulsation: pulsation, post_id: @post.id, pregnancy: pregnancy)
   end
 end

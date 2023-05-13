@@ -22,10 +22,10 @@
   <p>_____________________________________________</p>
   
   <div>
-    <p>体温<%= post.temperature %></p>
-    <p>体重<%= post.weight %></p>
-    <p>体脂肪率<%= post.body_fat_percentage %></p>
-    <p>コメント<%= post.posted_text %></p>
+    <p>体温：<%= post.temperature %></p>
+    <p>体重：<%= post.weight %></p>
+    <p>体脂肪率：<%= post.body_fat_percentage %></p>
+    <p>コメント：<%= post.posted_text %></p>
     <%# if post.image.attached? %>
       <!--<p>画像<%#= image_tag post.image %></p>-->
     <%# else %>
@@ -35,21 +35,27 @@
   
   <div>
     <p>生理</p>
-    <p>生理開始日<%= post.physiology.physiology_start_date %></p>
-    <p>生理終了日<%= post.physiology.physiology_end_date %></p>
-    <p>経血量<%= post.physiology.menstrual_blood_volume_i18n %></p>
-    <p>生理痛<%= post.physiology.cramps_i18n %></p>
-    <p>くすり<%= post.physiology.medicine %></p>
+    <p>生理開始日：<%= post.physiology.physiology_start_date %></p>
+    <p>生理終了日：<%= post.physiology.physiology_end_date %></p>
+    <p>経血量：<%= post.physiology.menstrual_blood_volume_i18n %></p>
+    <p>生理痛：<%= post.physiology.cramps_i18n %></p>
+    <p>くすり
+      <% if post.physiology.medicine == true %>
+        <%= "あり" %>
+      <% else %>
+        <%= "なし" %>
+      <% end %>
+    </p>
   </div>
   
   <div>
     <p>からだ</p>
     <p><%= post.physical_symptom.physical %></p>
-    <p><%= post.physical_symptom.no_malfunction %></p>
-    <p><%= post.physical_symptom.tired %></p>
-    <p><%= post.physical_symptom.washed_out_feeling %></p>
-    <p><%= post.physical_symptom.lumbago %></p>
-    <p><%= post.physical_symptom.stomach_ache %></p>
+    <p><%#= post.physical_symptom.no_malfunction %></p>
+    <p><%#= post.physical_symptom.tired %></p>
+    <p><%#= post.physical_symptom.washed_out_feeling %></p>
+    <p><%#= post.physical_symptom.lumbago %></p>
+    <p><%#= post.physical_symptom.stomach_ache %></p>
     <p>便通：<%= post.physical_symptom.defecute_i18n %></p>
     <p>おりもの：<%= post.physical_symptom.vaginal_discharge_i18n %></p>
     <p>おりものの性質：<%= post.physical_symptom.vaginal_discharge_type_i18n %></p>
@@ -59,26 +65,28 @@
   
   <div>
     <p>こころ</p>
-    <p><%= post.mental_manifestation.mental_good %></p>
-    <p><%= post.mental_manifestation.mental_normal %></p>
-    <p><%= post.mental_manifestation.frustrating %></p>
-    <p><%= post.mental_manifestation.hot_tempered %></p>
-    <p><%= post.mental_manifestation.emotional_instability %></p>
-    <p><%= post.mental_manifestation.emotional %></p>
-    <p><%= post.mental_manifestation.uneasiness %></p>
-    <p><%= post.mental_manifestation.poor_concentrtion %></p>
-    <p><%= post.mental_manifestation.lethargy %></p>
-    <p><%= post.mental_manifestation.melancholy %></p>
+    <p><%= post.mental_manifestation.mental %></p>
+    <p><%#= post.mental_manifestation.mental_good %></p>
+    <p><%#= post.mental_manifestation.mental_normal %></p>
+    <p><%#= post.mental_manifestation.frustrating %></p>
+    <p><%#= post.mental_manifestation.hot_tempered %></p>
+    <p><%#= post.mental_manifestation.emotional_instability %></p>
+    <p><%#= post.mental_manifestation.emotional %></p>
+    <p><%#= post.mental_manifestation.uneasiness %></p>
+    <p><%#= post.mental_manifestation.poor_concentrtion %></p>
+    <p><%#= post.mental_manifestation.lethargy %></p>
+    <p><%#= post.mental_manifestation.melancholy %></p>
   </div>
   
   <div>
     <p>妊娠中</p>
-    <p><%= post.pregnancy.morning_sickness %></p>
-    <p><%= post.pregnancy.belching %></p>
-    <p><%= post.pregnancy.backache_during_pregnancy %></p>
-    <p><%= post.pregnancy.anaemia %></p>
-    <p><%= post.pregnancy.sour_stomach %></p>
-    <p><%= post.pregnancy.pulsation %></p>
+    <p><%= post.pregnancy.pregnancy %></p>
+    <p><%#= post.pregnancy.morning_sickness %></p>
+    <p><%#= post.pregnancy.belching %></p>
+    <p><%#= post.pregnancy.backache_during_pregnancy %></p>
+    <p><%#= post.pregnancy.anaemia %></p>
+    <p><%#= post.pregnancy.sour_stomach %></p>
+    <p><%#= post.pregnancy.pulsation %></p>
   </div>
   
   <%= link_to post_path(post.id) do %>
